@@ -1,0 +1,95 @@
+.dashboard {
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard .header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.dashboard .header button {
+  background-color: brown;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.dashboard .dashboard-data {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  margin: 60px 0;
+}
+
+.dashboard .dashboard-data .data-cupons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.dashboard .dashboard-data .data-cupons .cupom-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin: 10px 0;
+  padding: 10px;
+  width: 90%;
+}
+
+.dashboard .dashboard-data .data-cupons .cupom-data .cupom-infos {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.dashboard .dashboard-data .data-cupons .cupom-data .cupom-infos h6 {
+  margin: 2px 5px;
+}
+
+.dashboard .dashboard-data .data-company {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.dashboard .dashboard-data .data-company .company-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin: 10px 0;
+  padding: 10px;
+  width: 90%;
+}
+
+.dashboard .dashboard-data .data-company .company-data .company-infos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard .dashboard-data .data-company .company-data .company-infos h6 {
+  margin: 1px 5px;
+}

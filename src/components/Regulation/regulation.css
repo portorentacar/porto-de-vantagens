@@ -1,0 +1,196 @@
+.regulation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.regulation .demiliter img {
+  margin: 0 0 100px 0;
+  width: 400px;
+}
+
+.regulation .info-regulation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.regulation .info-regulation .text-itens-regulation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.regulation .info-regulation .text-itens-regulation img {
+  width: 400px;
+}
+
+.regulation .info-regulation .text-itens-regulation .text-regulation p {
+  padding: 40px 40px;
+  font-size: 16px;
+}
+
+.regulation .info-regulation .text-itens-regulation .buttons-regulation A {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 15px;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.regulation .info-regulation .text-itens-regulation .buttons-regulation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.regulation
+  .info-regulation
+  .text-itens-regulation
+  .buttons-regulation
+  .btn-regulation {
+  background-color: #2e4562;
+  border-radius: 8px;
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+.regulation
+  .info-regulation
+  .text-itens-regulation
+  .buttons-regulation
+  .btn-regulation-2 {
+  background-color: #f58634;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.regulation .info-regulation .img-regulation img {
+  width: 650px;
+  margin-right: -67px;
+}
+
+@media (max-width: 1080px) {
+  .regulation .info-regulation {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .regulation .info-regulation .img-regulation img {
+    width: 500px;
+    margin-right: -77px;
+  }
+
+  @media (max-width: 1024px) {
+    .regulation .info-regulation {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    .regulation .info-regulation .img-regulation img {
+      width: 470px;
+      margin-right: -77px;
+    }
+
+    @media (max-width: 900px) {
+      .regulation {
+        font-size: 16px;
+      }
+      .regulation .info-regulation {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+      .regulation .info-regulation {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .regulation .info-regulation .text-itens-regulation {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+      }
+
+      .regulation .info-regulation .img-regulation img {
+        display: none;
+      }
+
+      .regulation .info-regulation .text-itens-regulation .buttons-regulation {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @media (max-width: 400px) {
+        .regulation {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          flex-wrap: wrap;
+          width: 100%;
+        }
+        .regulation .demiliter img {
+          margin: 25px 0 25px 0;
+          width: 200px;
+        }
+
+        .regulation .info-regulation .text-itens-regulation img {
+          width: 350px;
+        }
+
+        .regulation .info-regulation .text-itens-regulation {
+          margin: 0 0 0 -10px;
+          width: 250px;
+        }
+
+        .regulation
+          .info-regulation
+          .text-itens-regulation
+          .buttons-regulation
+          .btn-regulation {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #2e4562;
+          border-radius: 8px;
+          margin-right: 5px;
+          font-size: 12px;
+          height: 60px;
+          width: 150px;
+        }
+        .regulation
+          .info-regulation
+          .text-itens-regulation
+          .buttons-regulation
+          .btn-regulation-2 {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #f58634;
+          border-radius: 8px;
+          font-size: 12px;
+          height: 60px;
+          width: 150px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+.dashboard-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.dashboard-data .data-company {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.dashboard-data .data-company .company-data {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin: 10px;
+  width: 70%;
+}
+
+.dashboard-data .data-company .company-data .company-img {
+  width: 150px;
+  height: 150px;
+}
+
+.dashboard-data .data-company .company-data .company-img img {
+  width: 150px;
+}
+
+.dashboard-data .data-company .company-data .data-company-infos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px;
+  margin: 10px;
+  width: 100%;
+}
+
+.dashboard-data .data-company .company-data .data-company-infos .company-infos {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 5px;
+  width: 90%;
+}
+
+.dashboard-data
+  .data-company
+  .company-data
+  .data-company-infos
+  .buttons-company
+  button {
+  padding: 10px;
+  background-color: #2e4562;
+  border: none;
+  color: #fff;
+  margin: 10px;
+  border-radius: 8px;
+}
