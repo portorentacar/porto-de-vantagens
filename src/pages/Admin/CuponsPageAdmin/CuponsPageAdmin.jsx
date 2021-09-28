@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {toast} from 'react-toastify';
 import firebase from '../../../services/firebaseConnection';
 import Navbar2 from '../../../components/NavbarAdmin/index';
 import './cuponsPageAdmin.css'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/Auth';
 
 function CuponsPageAdmin() {
+    const {deleteCupom} = useContext(AuthContext)
     const [cupons, setCupons] = useState([]);
     
     useEffect(() => {
@@ -40,6 +42,10 @@ function CuponsPageAdmin() {
     loadCupons();
     }, [])
 
+    function handleDelete(id) {
+        deleteCupom(id)
+    }
+
 
     return (
         <div className="container">
@@ -64,7 +70,7 @@ function CuponsPageAdmin() {
                                <h3>Cupom: {cupom.id}</h3>
                                <div className="buttons-cupom">
                                    <button>Editar</button>
-                                   <button>Excluir</button>
+                                   <button onClick={() => {handleDelete(cupom.id)}}>Excluir</button>
                                </div>
                            </div>
                        )

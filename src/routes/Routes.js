@@ -37,11 +37,11 @@ function Routes() {
 
             
             <RouteWrapper exact path="/admin/painel" component={Dashboard} isPrivate />
-            <RouteWrapper exact path="/admin/parceiros" component={CompanyPageAdmin} />
+            <RouteWrapper exact path="/admin/parceiros" component={CompanyPageAdmin} isPrivate/>
             <RouteWrapper exact path="/admin/novoparceiro" component={NewCompany} isPrivate/>
-            <RouteWrapper exact path="/admin/cupons" component={CuponsPageAdmin} />
+            <RouteWrapper exact path="/admin/cupons" component={CuponsPageAdmin} isPrivate/>
             <RouteWrapper exact path="/admin/novocupom" component={NewCupom} isPrivate/>
-            <RouteWrapper exact path="/admin/usuarios" component={UsersAdmin} />
+            <RouteWrapper exact path="/admin/usuarios" component={UsersAdmin} isPrivate/>
             <RouteWrapper exact path="/admin/cadastro" component={SignUp} isPrivate/>
 
         </Switch>

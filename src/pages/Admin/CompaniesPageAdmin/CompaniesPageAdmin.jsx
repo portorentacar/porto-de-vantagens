@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {toast} from 'react-toastify';
 import firebase from '../../../services/firebaseConnection';
 import Navbar2 from '../../../components/NavbarAdmin/index';
 import './companiesPageAdmin.css';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/Auth';
 
 function CompanyPageAdmin() {
+    const {deleteCompany} = useContext(AuthContext)
     const [data, setData] = useState([]);
     
     useEffect(() => {
@@ -16,6 +18,7 @@ function CompanyPageAdmin() {
                     let data = [];
                     snapshot.forEach((doc) => {
                         data.push({
+                       id: doc.id,
                        fantasyName:doc.data().fantasyName,
                         companyName: doc.data().companyName,
                         road:doc.data().road,
@@ -40,6 +43,7 @@ function CompanyPageAdmin() {
                         })
                     })
                     setData(data);
+                    console.log(data)
                 }).catch(error => {
                     console.log(error)
                     toast.error('Ops. Deu algo errado');
@@ -48,6 +52,12 @@ function CompanyPageAdmin() {
 
         loadCompanies();
     }, [])
+
+
+    function handleDelete(id) {
+        console.log(id)
+       deleteCompany(id)
+    }
 
 
     return (
@@ -80,7 +90,7 @@ function CompanyPageAdmin() {
                                <h5>{company.segment}</h5>
                                <div className="buttons-company">
                                    <button>Editar</button>
-                                   <button>Excluir</button>
+                                   <button onClick={() => handleDelete(company.id)}>Excluir</button>
                                </div>
                                 </div>
                             </div>

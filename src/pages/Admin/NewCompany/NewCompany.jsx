@@ -106,7 +106,7 @@ function NewCompany() {
                                     setPercentage('');
                                     setSegment('');
                                     setAvatarUrl(null);
-                                    setDescription(null);
+                                    setDescription('');
                         
                                     toast.success('Novo parceiro cadastrado com sucesso!')
                                 }).catch(error => {
@@ -199,6 +199,7 @@ function NewCompany() {
                                 <option value="Padarias e Supermercados">Padarias e Supermercados</option>
                                 <option value="Loja de roupas, sapatos e biquinis">Loja de roupas, sapatos e biquinis</option>
                                 <option value="Loja de roupas infantís">Loja de roupas infantís</option>
+                                <option value="Jóias e Acessórios">Jóias e Acessórios</option>
                                 <option value="Sorveteria e Açaí">Sorveteria e Açaí</option>
                                 <option value="Informatica e Tecnologia">Informatica e Tecnologia</option>
                                 <option value="Advocacia">Advocacia</option>

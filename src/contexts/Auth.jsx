@@ -1,10 +1,12 @@
 import { createContext, useEffect, useState } from 'react';
 import firebase from '../services/firebaseConnection';
 import {toast} from 'react-toastify';
+import { useHistory } from 'react-router';
 
 export const AuthContext = createContext({});
 
 function AuthProvider({children}) {
+    const history = useHistory()
     const [user, setUser] = useState(null)
     const [loadingAuth, setLoadingAuth] = useState(false)
     const [loading, setLoading] = useState(null)
@@ -57,6 +59,38 @@ function AuthProvider({children}) {
             })
     }
 
+    async function deleteCupom(id) {
+        await firebase.firestore().collection('cupons').doc(id).delete()
+            .then(() => {
+                toast.success('Cupom deletado com sucesso')
+                history.push('/cupons')
+            }).catch(error => {
+                toast.error('Falha ao deletar')
+            })
+    }
+
+    async function deleteCompany(id) {
+         console.log(id)
+        await firebase.firestore().collection('company').doc(id).delete()
+            .then(() => {
+                toast.success('Parceiro deletado com sucesso')
+                history.push('/parceiros')
+            }).catch(error => {
+                toast.error('Falha ao deletar')
+            })
+    }
+
+    async function deleteUser(id) {
+        await firebase.firestore().collection('users').doc(id).delete()
+            .then(() => {
+                toast.success('Usuário deletado com sucesso')
+                history.push('/usuarios')
+            }).catch(error => {
+                toast.error('Falha ao deletar')
+            })
+    }
+    
+
     //Efetuando login no sistema
     async function signIn(email, password) {
         setLoadingAuth(true);
@@ -82,6 +116,7 @@ function AuthProvider({children}) {
                 toast.error(`Ops. Ocorreu algum erro!`)
             })
     }
+
 
     //SALVANDO NO LOCAL STORAGE
         function storageUser(data) {
@@ -113,6 +148,9 @@ function AuthProvider({children}) {
             setUser,
             storageUser,
             copiCode,
+            deleteCupom,
+            deleteCompany,
+            deleteUser,
             cupom
         }}>
             {children}

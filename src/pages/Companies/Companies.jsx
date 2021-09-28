@@ -144,7 +144,8 @@ function Companies() {
                         <h6>{company.segment}</h6>
                     </div>
                     <div className="percentage">
-                        <h2>{company.percentage}% <br />{company.description}</h2>
+                        <h2>{company.percentage}%</h2>
+                        <h5>{company.description}</h5>
                     </div>
                 </div>
                 )

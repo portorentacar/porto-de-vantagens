@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {toast} from 'react-toastify';
 import firebase from '../../../services/firebaseConnection';
 import Navbar2 from '../../../components/NavbarAdmin/index';
 import './userAdmin.css'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/Auth';
 
 function UsersAdmin() {
+    const {deleteUser} = useContext(AuthContext)
     const [users, setUsers] = useState([]);
     
     useEffect(() => {
@@ -35,17 +37,8 @@ function UsersAdmin() {
     }, [])
 
 
-    async function handleDelete(id) {
-        await firebase.firestore().collection('users')
-            .doc(id)
-                .delete()
-                    .then(() => {
-                        window.location.reload(true);
-                        toast.success('Usuário deletado com sucesso');
-                    }).catch(error => {
-                console.log(error)
-                toast.error('Ops. Deu algo errado');
-            })
+    function handleDelete(id) {
+        deleteUser(id)
     }
 
 
@@ -57,7 +50,7 @@ function UsersAdmin() {
         <div className="data-cupons">
                 <h3>USUÁRIOS CADASTRADOS</h3>
                <br />
-               <Link className="btn-header-2" to='/Admin/signup'>+ Cadastrar Novo Usuário</Link>
+               <Link className="btn-header-2" to='/admin/cadastro'>+ Cadastrar Novo Usuário</Link>
                <br/>
                {
                    users.map((user) => {

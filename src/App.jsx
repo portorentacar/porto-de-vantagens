@@ -7,12 +7,12 @@ import AuthProvider from './contexts/Auth';
 
 function App() {
   return (
-    <AuthProvider>
     <BrowserRouter>
+    <AuthProvider>
     <ToastContainer autoClose={3000}/>
     <Routes />
-    </BrowserRouter>
     </AuthProvider>
+    </BrowserRouter>
   );
 }
 
