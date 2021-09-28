@@ -5,9 +5,11 @@ import Navbar2 from '../../../components/NavbarAdmin/index';
 import './cuponsPageAdmin.css'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/Auth';
+import {useHistory} from 'react-dom'
 
 function CuponsPageAdmin() {
     const {deleteCupom} = useContext(AuthContext)
+      const history = useHistory()
     const [cupons, setCupons] = useState([]);
     
     useEffect(() => {
@@ -46,6 +48,11 @@ function CuponsPageAdmin() {
         deleteCupom(id)
     }
 
+     function handleEdit(id) {
+        history.push(`/admin/editcupom/${id}`)
+    }
+
+
 
     return (
         <div className="container">
@@ -69,7 +76,7 @@ function CuponsPageAdmin() {
                                </div>
                                <h3>Cupom: {cupom.id}</h3>
                                <div className="buttons-cupom">
-                                   <button>Editar</button>
+                                   <button onClick={() => handleEdit(cupom.id)}>Editar</button>
                                    <button onClick={() => {handleDelete(cupom.id)}}>Excluir</button>
                                </div>
                            </div>

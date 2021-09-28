@@ -7,7 +7,7 @@ import {FiUpload} from 'react-icons/fi';
 import Navbar2 from '../../../components/NavbarAdmin/index';
 import './companiesEdit.css';
 
-function NewCompany() {
+function CompaniesEdit() {
     const [companyName, setCompanyName] = useState('');
     const [road, setRoad] = useState('');
     const [number, setNumber] = useState('');
@@ -279,4 +279,4 @@ function NewCompany() {
     )
 }
 
-export default NewCompany;
+export default CompaniesEdit;

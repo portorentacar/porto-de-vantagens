@@ -5,7 +5,7 @@ import firebase from '../../../services/firebaseConnection';
 import Navbar2 from '../../../components/NavbarAdmin/index';
 import './cuponsEdit.css';
 
-function NewCupom() {
+function CuponsEdit() {
     const [contract, setContract] = useState('');
     const [name, setName] = useState('');
     const [cpf, setCpf] = useState('');
@@ -39,6 +39,7 @@ function NewCupom() {
        }
     }
 
+   
 
     return (
         <div className="container">
@@ -64,4 +65,4 @@ function NewCupom() {
     )
 }
 
-export default NewCupom;
+export default CuponsEdit;

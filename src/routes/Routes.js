@@ -19,6 +19,8 @@ import SignUp from '../pages/Admin/SignUp/SignUp';
 import UsersAdmin from '../pages/Admin/UsersAdmin/UsersAdmin';
 import TermsOfUsePage from '../pages/TermsOfUsePage/TermsOfUsePage'
 import PrivacyPolicyPage from '../pages/PrivacyPolicyPage/PrivacyPolicyPage'
+import CompaniesEdit from '../pages/Admin/CompaniesEdit/CompaniesEdit';
+import CuponsEdit from '../pages/Admin/CuponsEdit/CuponsEdit';
  
 function Routes() {
     return (
@@ -39,8 +41,10 @@ function Routes() {
             <RouteWrapper exact path="/admin/painel" component={Dashboard} isPrivate />
             <RouteWrapper exact path="/admin/parceiros" component={CompanyPageAdmin} isPrivate/>
             <RouteWrapper exact path="/admin/novoparceiro" component={NewCompany} isPrivate/>
+            <RouteWrapper exact path="/admin/editparceiro/:id" component={CompaniesEdit} isPrivate/>
             <RouteWrapper exact path="/admin/cupons" component={CuponsPageAdmin} isPrivate/>
             <RouteWrapper exact path="/admin/novocupom" component={NewCupom} isPrivate/>
+            <RouteWrapper exact path="/admin/editcupom/:id" component={CuponsEdit} isPrivate/>
             <RouteWrapper exact path="/admin/usuarios" component={UsersAdmin} isPrivate/>
             <RouteWrapper exact path="/admin/cadastro" component={SignUp} isPrivate/>
 
