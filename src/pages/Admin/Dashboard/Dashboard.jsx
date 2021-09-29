@@ -12,7 +12,7 @@ function Dashboard() {
 
     useEffect(() => {
         async function loadCompanies() {
-            await firebase.firestore().collection('company')
+            await firebase.firestore().collection('company').limit(6)
             .get()
                 .then((snapshot) => {
                     let data = [];
@@ -47,7 +47,7 @@ function Dashboard() {
 
     //CARREGANDO OS CUPONS
     async function loadCupons() {
-        await firebase.firestore().collection('cupons')
+        await firebase.firestore().collection('cupons').limit(6)
         .get()
             .then((snapshot) => {
                 let list = [];
