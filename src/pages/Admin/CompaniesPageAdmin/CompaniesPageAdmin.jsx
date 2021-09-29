@@ -5,8 +5,10 @@ import Navbar2 from '../../../components/NavbarAdmin/index';
 import './companiesPageAdmin.css';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/Auth';
+import {useHistory} from 'react-router-dom';
 
 function CompanyPageAdmin() {
+    const history = useHistory();
     const {deleteCompany} = useContext(AuthContext)
     const [data, setData] = useState([]);
     
@@ -59,6 +61,10 @@ function CompanyPageAdmin() {
        deleteCompany(id)
     }
 
+    function handleEdit(id) {
+      history.push(`/admin/editparceiro/${id}`)
+    }
+
 
     return (
         <div className="container">
@@ -89,7 +95,7 @@ function CompanyPageAdmin() {
                                </div>
                                <h5>{company.segment}</h5>
                                <div className="buttons-company">
-                                   <button>Editar</button>
+                                   <button onClick={() => handleEdit(company.id)}>Editar</button>
                                    <button onClick={() => handleDelete(company.id)}>Excluir</button>
                                </div>
                                 </div>

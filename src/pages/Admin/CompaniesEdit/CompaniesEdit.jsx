@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Footer from '../../../components/Footer/Footer';
 import {toast} from 'react-toastify';
 import firebase from '../../../services/firebaseConnection';
@@ -6,8 +6,10 @@ import avatarLogo from '../../../assets/images/avatar.svg';
 import {FiUpload} from 'react-icons/fi';
 import Navbar2 from '../../../components/NavbarAdmin/index';
 import './companiesEdit.css';
+import { useParams } from 'react-router';
 
 function CompaniesEdit() {
+    const {id} = useParams()
     const [companyName, setCompanyName] = useState('');
     const [road, setRoad] = useState('');
     const [number, setNumber] = useState('');
@@ -26,9 +28,45 @@ function CompaniesEdit() {
     const [facebook, setFacebook] = useState('');
     const [percentage, setPercentage] = useState('');
     const [segment, setSegment] = useState('Selecione');
-    const [avatarUrl, setAvatarUrl] = useState(null);
-    const [imageAvatar, setImageAvatar] = useState('');
+    const [avatarUrl, setAvatarUrl] = useState('');
+    const [imageAvatar, setImageAvatar] = useState(null);
     const [description, setDescription] = useState('');
+
+
+        useEffect(() => {
+        async function loadCompanies() {
+            await firebase.firestore().collection('company').doc(id)
+            .get()
+                .then((snapshot) => {
+                        setCompanyName(snapshot.data().companyName)
+                        setRoad(snapshot.data().road)
+                        setNumber(snapshot.data().number)
+                        setComplement(snapshot.data().complement)
+                        setReference(snapshot.data().reference)
+                        setDistrict(snapshot.data().district)
+                        setCity(snapshot.data().city)
+                        setUf(snapshot.data().uf)
+                        setCode(snapshot.data().code)
+                        setDdd(snapshot.data().ddd)
+                        setPhone(snapshot.data().phone)
+                        setDdd2(snapshot.data().ddd2)
+                        setPhone2(snapshot.data().phone2)
+                        setEmail(snapshot.data().email)
+                        setSegment(snapshot.data().segment)
+                        setPercentage(snapshot.data().percentage)
+                        setInstagram(snapshot.data().instagram)
+                        setFacebook(snapshot.data().facebook)
+                        setDescription(snapshot.data().description)
+                        setAvatarUrl(snapshot.data().avatarUrl)
+
+                }).catch(error => {
+                    console.log(error)
+                    toast.error('Ops. Deu algo errado');
+                })
+        }
+
+        loadCompanies();
+    }, [id])
     
 
  
@@ -51,7 +89,6 @@ function CompaniesEdit() {
     }
 
     async function handleAddCompany(e) {
-        e.preventDefault();
 
         const uploadTask = await firebase.storage()
             .ref(`images/${imageAvatar.name}`)
@@ -64,8 +101,8 @@ function CompaniesEdit() {
                             let urlImage = url;
                             console.log(url)
 
-                            await firebase.firestore().collection('company')
-                                .add({
+                            await firebase.firestore().collection('company').doc(id)
+                                .update({
                                     companyName:companyName,
                                     road: road,
                                     number:number,
@@ -85,7 +122,7 @@ function CompaniesEdit() {
                                     segment:segment,
                                     percentage:percentage,
                                     description:description,
-                                    avatarUrl: urlImage
+                                    avatarUrl:  urlImage 
                                 }).then(() => {
                                     setInstagram('');
                                     setCompanyName('');
@@ -108,7 +145,7 @@ function CompaniesEdit() {
                                     setAvatarUrl(null);
                                     setDescription(null);
                         
-                                    toast.success('Novo parceiro cadastrado com sucesso!')
+                                    toast.success('Parceiro editado com sucesso!')
                                 }).catch(error => {
                                     console.log(error)
                                     toast.error('Ops. Deu algo errado')
@@ -124,6 +161,63 @@ function CompaniesEdit() {
             console.log(uploadTask);      
 };
 
+
+async function updateCompany(e) {
+    e.preventDefault();
+    if(imageAvatar === null) {
+        await firebase.firestore().collection('company').doc(id)
+                                .update({
+                                    companyName:companyName,
+                                    road: road,
+                                    number:number,
+                                    complement: complement,
+                                    reference: reference,
+                                    district:district,
+                                    city:city,
+                                    uf:uf,
+                                    code:code,
+                                    email:email,
+                                    ddd:ddd,
+                                    phone:phone,
+                                    ddd2:ddd2,
+                                    phone2:phone2,
+                                    instagram:instagram,
+                                    facebook:facebook,
+                                    segment:segment,
+                                    percentage:percentage,
+                                    description:description,
+                                }).then(() => {
+                                    setInstagram('');
+                                    setCompanyName('');
+                                    setFacebook('');
+                                    setRoad('');
+                                    setNumber('');
+                                    setComplement('');
+                                    setDistrict('');
+                                    setReference('');
+                                    setCity('');
+                                    setUf('');
+                                    setCode('');
+                                    setEmail('');
+                                    setDdd('');
+                                    setPhone('');
+                                    setDdd2('');
+                                    setPhone2('');
+                                    setPercentage('');
+                                    setSegment('');
+                                    setAvatarUrl(null);
+                                    setDescription(null);
+                        
+                                    toast.success('Parceiro editado com sucesso!')
+                                }).catch(error => {
+                                    console.log(error)
+                                    toast.error('Ops. Deu algo errado')
+                                })
+         }else if(imageAvatar !== null){
+            handleAddCompany()
+    }
+}
+
     function handleSelectSegment(e) {
         setSegment(e.target.value)
     }
@@ -138,7 +232,7 @@ function CompaniesEdit() {
         <div className="content">
         <div className="companiesEdit">
             <h1> EDIÇÃO DE PARCEIROS</h1>
-            <form className="form-company" onSubmit={handleAddCompany}>
+            <form className="form-company" onSubmit={updateCompany}>
                 <div className="image">
                             <label className="label-avatar">
                             <span><FiUpload color="#f65" size={25} /></span>
@@ -191,20 +285,25 @@ function CompaniesEdit() {
 
                             <label>Segmento: </label>
                             <select value={segment} onChange={handleSelectSegment}>
-                                <option value="Selecione">Selecione</option>
+                               <option value="Selecione">Selecione</option>
                                 <option value="Hoteis e Pousadas">Hoteis e Pousadas</option>
                                 <option value="Comércio de Óculos">Comércio de Óculos</option>
+                                <option value="Cafeteria">Cafeteria</option>
+                                 <option value="Peças, Acessórios e Baterias Automotivas">Peças, Acessórios e Baterias Automotivas</option>
                                 <option value="Agência de viagens e Excursões">Agência de viagens e Excursões</option>
                                 <option value="Restaurantes e Fast Foods">Restaurantes e Fast Foods</option>
                                 <option value="Padarias e Supermercados">Padarias e Supermercados</option>
                                 <option value="Loja de roupas, sapatos e biquinis">Loja de roupas, sapatos e biquinis</option>
                                 <option value="Loja de roupas infantís">Loja de roupas infantís</option>
+                                <option value="Lavanderia">Lavanderia</option>
+                                <option value="Jóias e Acessórios">Jóias e Acessórios</option>
                                 <option value="Sorveteria e Açaí">Sorveteria e Açaí</option>
                                 <option value="Informatica e Tecnologia">Informatica e Tecnologia</option>
                                 <option value="Advocacia">Advocacia</option>
                                 <option value="Contabilidade">Contabilidade</option>
                                 <option value="Marketing Digital">Marketing Digital</option>
                                 <option value="Salão de Beleza e Barbearia">Salão de Beleza e Barbearia</option>
+                                <option value="Mat. de Construção e Reformas">Mat. de Construção e Reformas</option>
                             </select>
                         
                             <label>% de desconto: </label>
@@ -269,7 +368,7 @@ function CompaniesEdit() {
 
                             </div>
                             
-                        <button type="submit" >Cadastrar Cliente</button>
+                        <button type="submit" >Atualizar Parceiro</button>
                     </form>
             
         </div>

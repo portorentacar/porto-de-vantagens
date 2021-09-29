@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
 }
-.container {
+.container-geral {
   width: 100%;
 }
 
@@ -17,7 +17,6 @@ button {
 
 .btn-header-2 {
   background-color: #2e4562;
-  border: 1px solid #2e4562;
   color: #fff;
   padding: 10px;
   border-radius: 8px;
@@ -26,6 +25,19 @@ button {
   width: 300px;
   text-align: center;
   margin-bottom: 40px;
+  text-decoration: none;
+}
+
+.btn-company-2 {
+  background-color: #f58634;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  width: 150px;
+  text-align: center;
+  margin-top: 5px;
   text-decoration: none;
 }
 

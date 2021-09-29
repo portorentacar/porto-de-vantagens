@@ -1,10 +1,12 @@
-import {Navbar, Container, Nav, NavDropdown} from 'react-bootstrap/Button';
-
+import {Container, Navbar, Nav, NavDropdown} from 'react-bootstrap'
+import './navbarClient.css'
 
 function NavbarClient() {
   return (
-    <div>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    
+    
+    <div className="navbarClient">
+   <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
   <Container>
   <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />

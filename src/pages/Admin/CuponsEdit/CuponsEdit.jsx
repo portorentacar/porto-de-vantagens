@@ -1,45 +1,58 @@
-import React,{ useState } from 'react';
+import React,{ useEffect, useState } from 'react';
 import Footer from '../../../components/Footer/Footer';
 import {toast} from 'react-toastify';
 import firebase from '../../../services/firebaseConnection';
 import Navbar2 from '../../../components/NavbarAdmin/index';
 import './cuponsEdit.css';
+import { useParams } from 'react-router';
 
 function CuponsEdit() {
+    const {id} = useParams()
     const [contract, setContract] = useState('');
     const [name, setName] = useState('');
     const [cpf, setCpf] = useState('');
 
-    async function handleAddCupom(e) {
+
+    useEffect(() => {
+          async function loadCupom() {
+            await firebase.firestore().collection('cupons').doc(id)
+            .get()
+                .then((snapshot) => {
+                    setCpf(snapshot.data().cpf);
+                    setName(snapshot.data().name);
+                    setContract(snapshot.data().contract)
+                }).catch(error => {
+                    console.log(error)
+                    toast.error('Ops. Deu algo errado');
+                })
+        }
+        loadCupom()
+    }, [id])
+
+    async function handleEditCupom(e) {
         e.preventDefault();
         
         if(contract !== '' &&
             cpf !== '' &&
             name !== '' ) {
         await firebase.firestore().collection('cupons')
-        .add({
+        .doc(id).update({
             contract: contract,
             cpf: cpf,
-            name:name,
-            date: new Date()
-
+            name:name
         }).then(() => {
             setContract('');
             setName('');
             setCpf('');
-
-            toast.success('Novo cupom cadastrado com sucesso!');
+            toast.success('Novo cupom editado com sucesso!');
         }).catch(error => {
             console.log(error)
             toast.error('Ops. Deu algo errado');
-        })
-        
+        })       
        } else {
         toast.error('Preencha todos os campos corretamente');
        }
     }
-
-   
 
     return (
         <div className="container">
@@ -47,7 +60,7 @@ function CuponsEdit() {
         <div className="content">
         <div className="cuponsEdit">
             <h1> GERAR NOVO CUPOM</h1>
-            <form className="form" onSubmit={handleAddCupom}>
+            <form className="form" onSubmit={handleEditCupom}>
                 <label>Nº CONTRATO</label>
                 <input type="text" value={contract} onChange={(e) => setContract(e.target.value)} />
                 <label>NOME COMPLETO</label>
@@ -55,7 +68,7 @@ function CuponsEdit() {
                 <label>CPF (Apenas números)</label>
                 <input type="text" value={cpf} onChange={(e) => setCpf(e.target.value)}/>
 
-                <button>GERAR CUPOM</button>
+                <button>EDITAR CUPOM</button>
             </form>
             
         </div>

@@ -29,7 +29,7 @@ function AuthProvider({children}) {
 
     //CRIANDO CADASTRO DE LOGIN E USUÁRIO NO NO BANCO DE DADOS
     async function signUp(email, password, name) {
-        setLoadingAuth(true);
+       // setLoadingAuth(true);
         await firebase.auth().createUserWithEmailAndPassword(email, password)
             .then( async (value) => {
                 let uid = value.user.uid;
@@ -45,10 +45,10 @@ function AuthProvider({children}) {
                             name: name,
                             email: value.user.email
                         };
-
-                        setUser(data);
-                        setLoadingAuth(false);
-                        toast.success(`Seja bem-vindo(a), ${data.name}`);
+                      //  setUser(data);
+                      //  setLoadingAuth(false);
+                        toast.success(`Usauário criado com sucesso`);
+                        console.log(data)
                     }).catch(error => {
                         console.log(error);
                         toast.error(`Ops. Ocorreu algum erro!`)
@@ -59,6 +59,7 @@ function AuthProvider({children}) {
             })
     }
 
+    //DELETANDO CUPOM
     async function deleteCupom(id) {
         await firebase.firestore().collection('cupons').doc(id).delete()
             .then(() => {
@@ -69,6 +70,7 @@ function AuthProvider({children}) {
             })
     }
 
+    //DELETANDO PARCEIRO
     async function deleteCompany(id) {
          console.log(id)
         await firebase.firestore().collection('company').doc(id).delete()
@@ -80,13 +82,15 @@ function AuthProvider({children}) {
             })
     }
 
-    async function deleteUser(id) {
+    //DELETANDO USUÁRIO
+
+    async function userDelete(id) {
         await firebase.firestore().collection('users').doc(id).delete()
-            .then(() => {
-                toast.success('Usuário deletado com sucesso')
-                history.push('/usuarios')
-            }).catch(error => {
-                toast.error('Falha ao deletar')
+                        .then(() => {
+                     toast.success('Usuário deletado com sucesso')
+                    history.push('/usuarios')
+                }).catch(error => {
+                toast.error('Falha ao deletar usuário no banco de dados')
             })
     }
     
@@ -106,7 +110,6 @@ function AuthProvider({children}) {
                     name: userProfile.data().name,
                     email: value.user.email
                 }
-
                 setUser(data);
                 storageUser(data);
                 setLoadingAuth(false);
@@ -119,9 +122,9 @@ function AuthProvider({children}) {
 
 
     //SALVANDO NO LOCAL STORAGE
-        function storageUser(data) {
-            localStorage.setItem("SistemUser", JSON.stringify(data));
-        }
+    function storageUser(data) {
+        localStorage.setItem("SistemUser", JSON.stringify(data));
+    }
 
     //LOGOUT - ENCERRANDO SESÃO
     async function signOut() {
@@ -130,6 +133,7 @@ function AuthProvider({children}) {
         setUser(null)
     }
 
+    //COPIANDO CÓDIGO DA BUSCA PARA APLICAR A VALIDAÇÃO
     function copiCode(code) {
         setCupom(code)
         console.log(code);
@@ -150,7 +154,7 @@ function AuthProvider({children}) {
             copiCode,
             deleteCupom,
             deleteCompany,
-            deleteUser,
+            userDelete,
             cupom
         }}>
             {children}

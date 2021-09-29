@@ -18,6 +18,9 @@ function SignUp() {
 
         if(name !== '' && email !== '' && password !== '') {
             signUp(email, password, name);
+            setName('');
+            setEmail('');
+            setPassword('');
         }
     }
 

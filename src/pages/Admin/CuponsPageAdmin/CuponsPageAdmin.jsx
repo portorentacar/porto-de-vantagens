@@ -5,11 +5,11 @@ import Navbar2 from '../../../components/NavbarAdmin/index';
 import './cuponsPageAdmin.css'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/Auth';
-import {useHistory} from 'react-dom'
+import {useHistory} from 'react-router-dom';
 
 function CuponsPageAdmin() {
-    const {deleteCupom} = useContext(AuthContext)
-      const history = useHistory()
+    const {deleteCupom} = useContext(AuthContext);
+    const history = useHistory();
     const [cupons, setCupons] = useState([]);
     
     useEffect(() => {
@@ -19,9 +19,7 @@ function CuponsPageAdmin() {
         .get()
             .then((snapshot) => {
                 let list = [];
-
-                
-                snapshot.forEach((doc) => {
+                 snapshot.forEach((doc) => {
 
                     const dateFormated = doc.data().date.toDate();
                     const newDateFormated = ((dateFormated.getDate() )) + "/" + ((dateFormated.getMonth() + 1)) + "/" + dateFormated.getFullYear();
@@ -49,7 +47,7 @@ function CuponsPageAdmin() {
     }
 
      function handleEdit(id) {
-        history.push(`/admin/editcupom/${id}`)
+      history.push(`/admin/editcupom/${id}`)
     }
 
 

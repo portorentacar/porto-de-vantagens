@@ -5,9 +5,11 @@ import Navbar2 from '../../../components/NavbarAdmin/index';
 import './userAdmin.css'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/Auth';
+import {useHistory} from 'react-router-dom';
 
 function UsersAdmin() {
-    const {deleteUser} = useContext(AuthContext)
+    const history = useHistory();
+    const {userDelete} = useContext(AuthContext)
     const [users, setUsers] = useState([]);
     
     useEffect(() => {
@@ -38,7 +40,11 @@ function UsersAdmin() {
 
 
     function handleDelete(id) {
-        deleteUser(id)
+        userDelete(id)
+    }
+
+      function handleEdit(id) {
+      history.push(`/admin/usuarios/${id}`)
     }
 
 
@@ -59,7 +65,7 @@ function UsersAdmin() {
                                <h3>{user.name}</h3>
                                <h3>{user.email}</h3>
                                <div className="buttons">
-                                   <button>Editar</button>
+                                   <button onClick={() => handleEdit(user.id)}>Editar</button>
                                    <button onClick={() => handleDelete(user.id)}>Excluir</button>
                                </div>
                            </div>

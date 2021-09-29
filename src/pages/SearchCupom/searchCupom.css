@@ -312,6 +312,13 @@ select {
           margin: 5px 0;
         }
 
+        .box .verde-search .buttons {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+
         .box .vermelho-search {
           width: 100%;
         }

@@ -136,12 +136,13 @@ function Companies() {
                     <div className="text">
                         <h2>{company.fantasyName}</h2>
                         <h2>{company.companyName}</h2>
-                        <h4>Rua {company.road}, Nº {company.number}, {company.complement}</h4>
+                        <h4>End: {company.road}, Nº {company.number}, {company.complement}</h4>
                         <h4>{company.district} - {company.city} - {company.uf} | CEP: {company.code}</h4>
                         <h4>Telefone: ({company.ddd}) {company.phone} | ({company.ddd2}) {company.phone2}</h4>
                         <h4>E-mail: {company.email}</h4>
                         <h4>Instagram: {company.instagram} | Facebook: {company.facebook} </h4>
                         <h6>{company.segment}</h6>
+                       <a className="btn-company-2" href={`https://www.google.com.br/maps/place/${company.road},+${company.number}-+${company.district},+${company.city}+-+${company.uf},+${company.code}/`} target="_blank" rel="noreferrer">Ver no mapa</a>
                     </div>
                     <div className="percentage">
                         <h2>{company.percentage}%</h2>

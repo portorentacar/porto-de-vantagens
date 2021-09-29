@@ -194,11 +194,14 @@ function NewCompany() {
                                 <option value="Selecione">Selecione</option>
                                 <option value="Hoteis e Pousadas">Hoteis e Pousadas</option>
                                 <option value="Comércio de Óculos">Comércio de Óculos</option>
+                                <option value="Cafeteria">Cafeteria</option>
+                                <option value="Peças, Acessórios e Baterias Automotivas">Peças, Acessórios e Baterias Automotivas</option>
                                 <option value="Agência de viagens e Excursões">Agência de viagens e Excursões</option>
                                 <option value="Restaurantes e Fast Foods">Restaurantes e Fast Foods</option>
                                 <option value="Padarias e Supermercados">Padarias e Supermercados</option>
                                 <option value="Loja de roupas, sapatos e biquinis">Loja de roupas, sapatos e biquinis</option>
                                 <option value="Loja de roupas infantís">Loja de roupas infantís</option>
+                                <option value="Lavanderia">Lavanderia</option>
                                 <option value="Jóias e Acessórios">Jóias e Acessórios</option>
                                 <option value="Sorveteria e Açaí">Sorveteria e Açaí</option>
                                 <option value="Informatica e Tecnologia">Informatica e Tecnologia</option>
@@ -206,6 +209,7 @@ function NewCompany() {
                                 <option value="Contabilidade">Contabilidade</option>
                                 <option value="Marketing Digital">Marketing Digital</option>
                                 <option value="Salão de Beleza e Barbearia">Salão de Beleza e Barbearia</option>
+                                <option value="Mat. de Construção e Reformas">Mat. de Construção e Reformas</option>
                             </select>
                         
                             <label>% de desconto: </label>
@@ -270,7 +274,7 @@ function NewCompany() {
 
                             </div>
                             
-                        <button type="submit" >Cadastrar Cliente</button>
+                        <button type="submit" >Cadastrar Parceiro</button>
                     </form>
             
         </div>
