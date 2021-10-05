@@ -1,8 +1,7 @@
 import React, { useContext, useState } from 'react';
-import Footer from '../../components/Footer/Footer';
 import { AuthContext } from '../../contexts/Auth';
-import Navbar from '../../components/Navbar/index'
 import './signIn.css'
+import LogoImg from '../../assets/images/logo.svg'
 
 function SignIn() {
 
@@ -19,9 +18,9 @@ function SignIn() {
     }
     return (
         <div className="container">
-            <Navbar />
         <div className="content">
-        <div className="box">
+        <div className="box-sign-in">
+            <img src={LogoImg} alt="logo" />
             <h1> FAÇA LOGIN NO SISTEMA</h1>
             <form className="form" onClick={handleLogin}>
                 <label>E-MAIL</label>
@@ -34,7 +33,6 @@ function SignIn() {
             
         </div>
         </div>
-        <Footer />
         </div>
     )
 }

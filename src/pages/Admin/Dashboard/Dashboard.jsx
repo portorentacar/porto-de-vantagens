@@ -12,13 +12,14 @@ function Dashboard() {
 
     useEffect(() => {
         async function loadCompanies() {
-            await firebase.firestore().collection('company').limit(6)
+            await firebase.firestore().collection('company').orderBy('date', 'desc').limit(6)
             .get()
                 .then((snapshot) => {
                     let data = [];
                     snapshot.forEach((doc) => {
                         data.push({
                         fantasyName:doc.data().fantasyName,
+                        companyName:doc.data().companyName,
                         road:doc.data().road,
                         number:doc.data().number,
                         complement:doc.data().complement,
@@ -116,12 +117,13 @@ function Dashboard() {
                    data.map((company) => {
                        return (
                             <div className="company-data">
-                                <h4>{company.fantasyName}</h4>
+                                <img src={company.image} alt={company.image} />
                                <div className="company-infos">
+                                <h3>{company.companyName}</h3>
                                <h6>Endereço: {company.road}, {company.number}, {company.complement}, </h6>
                                <h6>{company.district} - {company.city} - {company.uf} | {company.reference}</h6>
-                               </div>
                                <h4>{company.segment}</h4>
+                               </div>
                             </div>
                )
             })

@@ -145,7 +145,7 @@ function Companies() {
                        <a className="btn-company-2" href={`https://www.google.com.br/maps/place/${company.road},+${company.number}-+${company.district},+${company.city}+-+${company.uf},+${company.code}/`} target="_blank" rel="noreferrer">Ver no mapa</a>
                     </div>
                     <div className="percentage">
-                        <h2>{company.percentage}%</h2>
+                        {company.percentage === '' ? <h2> </h2>  : <h2>{company.percentage}%</h2>}
                         <h5>{company.description}</h5>
                     </div>
                 </div>

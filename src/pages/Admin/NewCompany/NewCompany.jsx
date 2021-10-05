@@ -85,7 +85,8 @@ function NewCompany() {
                                     segment:segment,
                                     percentage:percentage,
                                     description:description,
-                                    avatarUrl: urlImage
+                                    avatarUrl: urlImage,
+                                    date: new Date()
                                 }).then(() => {
                                     setInstagram('');
                                     setCompanyName('');
@@ -195,11 +196,15 @@ function NewCompany() {
                                 <option value="Hoteis e Pousadas">Hoteis e Pousadas</option>
                                 <option value="Comércio de Óculos">Comércio de Óculos</option>
                                 <option value="Cafeteria">Cafeteria</option>
+                                 <option value="Comunicação Visual e Gráfica">Comunicação Visual e Gráfica</option>
                                 <option value="Peças, Acessórios e Baterias Automotivas">Peças, Acessórios e Baterias Automotivas</option>
                                 <option value="Agência de viagens e Excursões">Agência de viagens e Excursões</option>
+                                <option value="Moda Praia">Moda Praia</option>
                                 <option value="Restaurantes e Fast Foods">Restaurantes e Fast Foods</option>
+                                <option value="Supermercados e Padarias">Supermercados e Padarias</option>
                                 <option value="Padarias e Supermercados">Padarias e Supermercados</option>
-                                <option value="Loja de roupas, sapatos e biquinis">Loja de roupas, sapatos e biquinis</option>
+                                <option value="Loja de roupas">Loja de roupas</option>
+                                <option value="Sapatos e Calçados">Sapatos e Calçados</option>
                                 <option value="Loja de roupas infantís">Loja de roupas infantís</option>
                                 <option value="Lavanderia">Lavanderia</option>
                                 <option value="Jóias e Acessórios">Jóias e Acessórios</option>
