@@ -6,10 +6,11 @@ import avatarLogo from '../../../assets/images/avatar.svg';
 import {FiUpload} from 'react-icons/fi';
 import Navbar2 from '../../../components/NavbarAdmin/index';
 import './companiesEdit.css';
-import { useParams } from 'react-router';
+import { useParams, useHistory } from 'react-router';
 
 function CompaniesEdit() {
-    const {id} = useParams()
+    const {id} = useParams();
+    const history = useHistory()
     const [companyName, setCompanyName] = useState('');
     const [road, setRoad] = useState('');
     const [number, setNumber] = useState('');
@@ -208,7 +209,8 @@ async function updateCompany(e) {
                                     setAvatarUrl(null);
                                     setDescription(null);
                         
-                                    toast.success('Parceiro editado com sucesso!')
+                                    toast.success('Parceiro editado com sucesso!');
+                                    history.push('/')
                                 }).catch(error => {
                                     console.log(error)
                                     toast.error('Ops. Deu algo errado')

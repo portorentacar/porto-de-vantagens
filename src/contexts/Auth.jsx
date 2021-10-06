@@ -83,7 +83,6 @@ function AuthProvider({children}) {
     }
 
     //DELETANDO USUÁRIO
-
     async function userDelete(id) {
         await firebase.firestore().collection('users').doc(id).delete()
                         .then(() => {
@@ -94,7 +93,6 @@ function AuthProvider({children}) {
             })
     }
     
-
     //Efetuando login no sistema
     async function signIn(email, password) {
         setLoadingAuth(true);
@@ -119,7 +117,6 @@ function AuthProvider({children}) {
                 toast.error(`Ops. Ocorreu algum erro!`)
             })
     }
-
 
     //SALVANDO NO LOCAL STORAGE
     function storageUser(data) {

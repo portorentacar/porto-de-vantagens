@@ -4,10 +4,11 @@ import {toast} from 'react-toastify';
 import firebase from '../../../services/firebaseConnection';
 import Navbar2 from '../../../components/NavbarAdmin/index';
 import './cuponsEdit.css';
-import { useParams } from 'react-router';
+import { useParams, useHistory } from 'react-router';
 
 function CuponsEdit() {
     const {id} = useParams()
+    const history = useHistory()
     const [contract, setContract] = useState('');
     const [name, setName] = useState('');
     const [cpf, setCpf] = useState('');
@@ -45,6 +46,7 @@ function CuponsEdit() {
             setName('');
             setCpf('');
             toast.success('Novo cupom editado com sucesso!');
+            history.push('/')
         }).catch(error => {
             console.log(error)
             toast.error('Ops. Deu algo errado');
