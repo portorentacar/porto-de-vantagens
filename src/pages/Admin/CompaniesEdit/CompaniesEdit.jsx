@@ -34,7 +34,7 @@ function CompaniesEdit() {
     const [description, setDescription] = useState('');
 
 
-        useEffect(() => {
+    useEffect(() => {
         async function loadCompanies() {
             await firebase.firestore().collection('company').doc(id)
             .get()
@@ -70,8 +70,7 @@ function CompaniesEdit() {
     }, [id])
     
 
- 
- 
+    // Carregando imagem e salvando dados no banco de dados
     function handleFile(e) {
         console.log(e.target.files[0])
 
@@ -89,6 +88,7 @@ function CompaniesEdit() {
        }
     }
 
+    //Edit company
     async function handleAddCompany(e) {
 
         const uploadTask = await firebase.storage()
@@ -160,10 +160,10 @@ function CompaniesEdit() {
                 toast.error('Ops. Deu algo errado. Tente novamente ou contate o desenvovedor!')
             })
             console.log(uploadTask);      
-};
+    };
 
-
-async function updateCompany(e) {
+    //Edit company of image
+    async function updateCompany(e) {
     e.preventDefault();
     if(imageAvatar === null) {
         await firebase.firestore().collection('company').doc(id)
@@ -218,7 +218,7 @@ async function updateCompany(e) {
          }else if(imageAvatar !== null){
             handleAddCompany()
     }
-}
+    }
 
     function handleSelectSegment(e) {
         setSegment(e.target.value)
