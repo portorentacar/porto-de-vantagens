@@ -15,11 +15,10 @@ function Header() {
             </div>
             <div className="text">
             <img src={imgParticipe} alt="header" />
-            <h3>ALUGUE UM VEÍCULO CONOSCO E TENHA DESCONTOS EM LOJAS, RESTAURANTES, HOTEIS E MAIS...</h3>
+            <h3>ALUGUE UM VEÍCULO CONOSCO E TENHA <br />DESCONTOS EM LOJAS, RESTAURANTES, <br />HOTEIS E MAIS...</h3>
                 <div className="buttons">
                     <Link className="btn-header"  to="/buscar-cupom">VER MEUS CUPONS</Link>
                     <Link className="btn-header-2" to='/validar-cupom'>VALIDAR CUPOM</Link>
-                   <Link  to='/regulamento'>VER REGULAMENTO COMPLETO</Link>
                 </div>
             </div>
         </div>

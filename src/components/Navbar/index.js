@@ -11,8 +11,7 @@ import {
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-
-  const [isOpenModal, setIsOpenModal] = useState(false);
+const [isOpenModal, setIsOpenModal] = useState(false);
 
   function handleOpenModal() {
     setIsOpenModal(true)
@@ -22,14 +21,7 @@ const Navbar = () => {
     setIsOpenModal(false)
   }
 
-
   Modal.setAppElement('#root');
-
-
-
-
-
-
 
   return (
     <div className="container">
@@ -46,11 +38,14 @@ const Navbar = () => {
             Onde Usar?
           </NavLink>
           <NavLink to='/parceiros' activeStyle>
-            Seja um parceiro
+            Parceiros
           </NavLink>
-          <NavLink to='/contato' activeStyle>
-            Fale Conosco
+          <NavLink to='/turismo' activeStyle>
+           Turismo
           </NavLink>
+          {/* <NavLink to='/contato' activeStyle>
+            Contato
+          </NavLink> */}
           {/* Second Nav */}
           {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
           <Bars handleOpenModal={handleOpenModal}></Bars>

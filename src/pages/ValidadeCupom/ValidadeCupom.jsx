@@ -75,7 +75,7 @@ function ValidadeCupom() {
             </form>
             
        {data.length === 0 ? 
-       <div className="text"> <h3>SEU CUPOM APARECERÁ AQUI!</h3></div> :
+       <div className="text"><br /><br /> <h3>SEU CUPOM APARECERÁ AQUI!</h3></div> :
        <div className={disponible === "Disponível" ? "verde" : "vermelho" }>
             <div className="data">
                         <div className="infos">

@@ -1,5 +1,5 @@
 .company {
-  margin-top: -150px;
+  margin-top: 150px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -8,7 +8,6 @@
 
 .company .company-texts {
   width: 320px;
-  margin-top: 150px;
 }
 
 .company .company-texts .company-text-iten {
@@ -49,6 +48,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  margin-top: -150px;
 }
 
 .company .title img {

@@ -22,6 +22,7 @@ import PrivacyPolicyPage from '../pages/PrivacyPolicyPage/PrivacyPolicyPage'
 import CompaniesEdit from '../pages/Admin/CompaniesEdit/CompaniesEdit';
 import CuponsEdit from '../pages/Admin/CuponsEdit/CuponsEdit';
 import EditUser from '../pages/Admin/EditUser/EditUser';
+import Tourism from '../pages/Tourism/Tourism';
  
 function Routes() {
     return (
@@ -37,6 +38,7 @@ function Routes() {
             <RouteWrapper exact path="/new" component={UploadImage} />
             <RouteWrapper exact path="/termos-de-uso" component={TermsOfUsePage} />
             <RouteWrapper exact path="/politica-de-privacidade" component={PrivacyPolicyPage} />
+            <RouteWrapper exact path="/turismo" component={Tourism} />
 
             
             <RouteWrapper exact path="/admin/painel" component={Dashboard} isPrivate />

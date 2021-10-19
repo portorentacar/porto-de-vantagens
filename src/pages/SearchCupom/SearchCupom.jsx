@@ -80,7 +80,6 @@ function handleRedirect() {
             <Navbar />
         <div className="content">
         <div className="box">
-            <br/> <br/> <br/> <br/>
             <h1> VER MEUS CUPONS {id}</h1>
             <form className="form-search">
                 <label>CPF (Apenas números)</label>
@@ -90,7 +89,7 @@ function handleRedirect() {
             </form>
             
         {verification === ''? 
-        <div className="text-info"><p>VOCÊ VERÁ SEUS CUPONS AQUI!</p></div>: 
+        <div className="text-info"><br /><br /><h3>VOCÊ VERÁ SEUS CUPONS AQUI!</h3></div>: 
         data.map(user => {
             return (
                 <div className={user.css}>
