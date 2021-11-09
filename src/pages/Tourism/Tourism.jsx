@@ -4,6 +4,8 @@ import Navbar from '../../components/Navbar/index';
 import cabofrioImg from '../../assets/images/cabofrio.png'
 import arraialImg from '../../assets/images/arraial.png'
 import buziosImg from '../../assets/images/buzios.png'
+import centralImg from '../../assets/images/central.png'
+
 function Tourism() {
     return (
         <div className="container">
@@ -43,6 +45,9 @@ function Tourism() {
                             oferecem paisagens naturais incríveis.</p>
                         <img src={cabofrioImg} alt="Cabo Frio" />
                         <a href="https://turismo.cabofrio.rj.gov.br/" target="_blank" rel="noreferrer">+ Turismo em Cabo Frio</a>
+                    </div>
+                    <div className="central">
+                        <img src={centralImg} alt="Central de atendimento ao turista" />
                     </div>
                 </div>
             </div>
