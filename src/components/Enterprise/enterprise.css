@@ -79,10 +79,11 @@
     padding: 0 30px;
   }
 
-  @media (max-width: 1080px) {
+  @media (max-width: 1024px) {
     .company .company-texts {
       width: 500px;
       padding: 0 30px;
+      margin-top: 50px;
     }
 
     .company {
@@ -115,7 +116,7 @@
     @media (max-width: 400px) {
       .company .company-texts {
         width: 300px;
-        margin: 0 0 0 -10px;
+        margin: 50px 0 0 -10px;
       }
     }
   }

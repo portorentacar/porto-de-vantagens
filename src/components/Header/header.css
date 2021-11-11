@@ -80,19 +80,24 @@
     width: 750px;
     margin: -90px 0 0 -155px;
   }
-  @media (max-width: 1080px) {
+  @media (max-width: 1024px) {
     .header .header-img img {
-      width: 700px;
+      width: 600px;
       margin: -90px 0 0 -155px;
     }
 
     @media (max-width: 900px) {
       .header .header-img img {
-        width: 600px;
+        width: 550px;
         margin: -90px 0 0 -155px;
       }
 
-      @media (max-width: 700px) {
+      .header .text {
+  padding: 0 40px 0 25px;
+
+}
+
+      @media (max-width: 740px) {
         .header {
           display: flex;
           flex-direction: column;
@@ -110,7 +115,7 @@
             margin: -90px 0 0 -100px;
           }
 
-          @media (max-width: 400px) {
+          @media (max-width: 420px) {
             .header .header-img img {
               width: 400px;
               margin: -90px 0 0 -100px;

@@ -102,12 +102,34 @@
       flex-direction: row;
       align-items: flex-end;
       justify-content: space-between;
+      margin-bottom: 50px;
     }
 
     .regulation .info-regulation .img-regulation img {
       width: 470px;
-      margin-right: -77px;
+      margin-right: -47px;
     }
+
+    .regulation
+  .info-regulation
+  .text-itens-regulation
+  .buttons-regulation
+  .btn-regulation {
+  background-color: #2e4562;
+  border-radius: 8px;
+  margin-right: 5px;
+  font-size: 12px;
+}
+
+.regulation
+  .info-regulation
+  .text-itens-regulation
+  .buttons-regulation
+  .btn-regulation-2 {
+  background-color: #f58634;
+  border-radius: 8px;
+  font-size: 12px;
+}
 
     @media (max-width: 900px) {
       .regulation {
@@ -145,7 +167,7 @@
         justify-content: center;
       }
 
-      @media (max-width: 400px) {
+      @media (max-width: 420px) {
         .regulation {
           display: flex;
           flex-direction: column;

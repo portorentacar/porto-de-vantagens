@@ -1,4 +1,4 @@
-import {Switch} from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import React from 'react';
 import RouteWrapper from './Route';
 import Home from '../pages/Home/Home';
@@ -23,7 +23,7 @@ import CompaniesEdit from '../pages/Admin/CompaniesEdit/CompaniesEdit';
 import CuponsEdit from '../pages/Admin/CuponsEdit/CuponsEdit';
 import EditUser from '../pages/Admin/EditUser/EditUser';
 import Tourism from '../pages/Tourism/Tourism';
- 
+
 function Routes() {
     return (
         <Switch>
@@ -40,17 +40,17 @@ function Routes() {
             <RouteWrapper exact path="/politica-de-privacidade" component={PrivacyPolicyPage} />
             <RouteWrapper exact path="/turismo" component={Tourism} />
 
-            
+
             <RouteWrapper exact path="/admin/painel" component={Dashboard} isPrivate />
-            <RouteWrapper exact path="/admin/parceiros" component={CompanyPageAdmin} isPrivate/>
-            <RouteWrapper exact path="/admin/novoparceiro" component={NewCompany} isPrivate/>
-            <RouteWrapper exact path="/admin/editparceiro/:id" component={CompaniesEdit} isPrivate/>
-            <RouteWrapper exact path="/admin/cupons" component={CuponsPageAdmin} isPrivate/>
-            <RouteWrapper exact path="/admin/novocupom" component={NewCupom} isPrivate/>
-            <RouteWrapper exact path="/admin/editcupom/:id" component={CuponsEdit} isPrivate/>
-            <RouteWrapper exact path="/admin/usuarios" component={UsersAdmin} isPrivate/>
-            <RouteWrapper exact path="/admin/usuarios/:id" component={EditUser} isPrivate/>
-            <RouteWrapper exact path="/admin/cadastro" component={SignUp} isPrivate/>
+            <RouteWrapper exact path="/admin/parceiros" component={CompanyPageAdmin} isPrivate />
+            <RouteWrapper exact path="/admin/novoparceiro" component={NewCompany} isPrivate />
+            <RouteWrapper exact path="/admin/editparceiro/:id" component={CompaniesEdit} isPrivate />
+            <RouteWrapper exact path="/admin/cupons" component={CuponsPageAdmin} isPrivate />
+            <RouteWrapper exact path="/admin/novocupom" component={NewCupom} isPrivate />
+            <RouteWrapper exact path="/admin/editcupom/:id" component={CuponsEdit} isPrivate />
+            <RouteWrapper exact path="/admin/usuarios" component={UsersAdmin} isPrivate />
+            <RouteWrapper exact path="/admin/usuarios/:id" component={EditUser} isPrivate />
+            <RouteWrapper exact path="/admin/cadastro" component={SignUp} isPrivate />
 
         </Switch>
     )
