@@ -25,7 +25,7 @@ const Navbar = () => {
   return (
     <Nav>
       <div className="logo">
-        <img src={logoImg} alt='logo' />
+        <a href="/"> <img src={logoImg} alt='logo' /></a>
       </div>
       <Burger />
     </Nav>

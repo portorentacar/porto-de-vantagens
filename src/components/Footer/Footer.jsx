@@ -12,7 +12,7 @@ function Footer() {
             <div className="footer">
                 <div className="infos">
                     <div className="footer-1">
-                        <img src={logo2Img} alt="logo" />
+                        <a href="/">  <img src={logo2Img} alt="logo" /></a>
                         <p>MAIS BENEFÍCIOS PARA NOSSOS CLIENTES</p>
                     </div>
                     <div className="footer-2">
