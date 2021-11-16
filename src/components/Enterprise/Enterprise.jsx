@@ -26,7 +26,7 @@ function Enterprise() {
                             <FiActivity size={125} color='#2E4562' />
                             <div className="iten-text">
                                 <h3>+ VISIBILIDADE </h3>
-                                <p>Sua empresa estará sempre em evidência na procura pelo seu segmento. Os clientem voltaram mesmo sem o benefício do desconto </p>
+                                <p>Sua empresa estará sempre em evidência na procura pelo seu segmento. Os clientes voltarão mesmo sem o benefício do desconto </p>
                             </div>
                         </div>
 
@@ -35,7 +35,7 @@ function Enterprise() {
                             <FiTrendingUp size={125} color='#2E4562' />
                             <div className="iten-text">
                                 <h3>+ AUMENTO DE RECEITA</h3>
-                                <p>Quando mais cupons forem gerados, mais clientes procuraram sua empresa para aproveitar seus benefícios disponíveis </p>
+                                <p>Quanto mais cupons forem gerados, mais clientes procurarão sua empresa para aproveitar seus benefícios disponíveis </p>
                             </div>
                         </div>
 
@@ -44,7 +44,7 @@ function Enterprise() {
                             <FiUserPlus size={125} color='#2E4562' />
                             <div className="iten-text">
                                 <h3>+ CAPTAÇÃO DE NOVOS CLIENTES</h3>
-                                <p>Além dos clientes recorrentes, novos cliente que visitam a cidade teram conhecimento de seu negócio através do clube de vantagens </p>
+                                <p>Além dos clientes recorrentes, novos clientes que visitam a cidade terão conhecimento de seu negócio através do clube de vantagens </p>
                             </div>
                         </div>
                     </div>
@@ -62,7 +62,7 @@ function Enterprise() {
                         <div className="company-text-iten2">
                             <div className="iten-text">
                                 <h3>+ NOVOS NEGÓCIOS</h3>
-                                <p>Com o aumento da distribuíção de cupons e clientes na região, abrirá novas possibilidades para aberturas de novas empresas </p>
+                                <p>Com o aumento da distribuição de cupons e clientes na região, abrirá novas possibilidades para aberturas de novas empresas </p>
                             </div>
                             <FiShoppingBag size={125} color='#2E4562' />
                         </div>
@@ -80,7 +80,7 @@ function Enterprise() {
                         <div className="company-text-iten2">
                             <div className="iten-text">
                                 <h3>+ POSSIBILIDADE DE NOVAS PARCERIAS </h3>
-                                <p>Além da parceria entre empresas e a Porto Rent a Car. Novas parcerias podem ser criadas, gerando mais benefícios e aumento de clientes</p>
+                                <p>Além da parceria entre empresas e a Porto Rent a Car, novas parcerias podem ser criadas, gerando mais benefícios e aumento de clientes</p>
                             </div>
                             <FiBriefcase size={125} color='#2E4562' />
                         </div>
