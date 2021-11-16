@@ -1,6 +1,6 @@
 import Footer from "../../components/Footer/Footer";
 import './tourism.css';
-import Navbar from '../../components/Navbar/index';
+import Nav2 from '../../components/Nav/Navbar'
 import cabofrioImg from '../../assets/images/cabofrio.png'
 import arraialImg from '../../assets/images/arraial.png'
 import buziosImg from '../../assets/images/buzios.png'
@@ -9,7 +9,7 @@ import centralImg from '../../assets/images/central.png'
 function Tourism() {
     return (
         <div className="container">
-            <Navbar />
+            <Nav2 />
             <div className="content">
                 <div className="tourism">
                     <h1>Turismo</h1>

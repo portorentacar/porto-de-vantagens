@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  z-index: 0;
 }
 
 .header {
@@ -17,6 +18,7 @@
 .header .header-img img {
   width: 680px;
   margin: -80px 20px 0 -50px;
+  z-index: 99;
 }
 
 .header .text {
