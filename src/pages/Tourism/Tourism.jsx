@@ -15,7 +15,7 @@ function Tourism() {
                     <h1>Turismo</h1>
                     <div className="text">
                         <p>Praias encantadoras, mar de águas claras, natureza exuberante e paisagens de tirar o fôlego.<br />
-                            Além de aproveitar seus cupons de desconto, conheça também os melhores lugares para curtir em Arraial do Cabo, Buzios e
+                            Além de aproveitar seus cupons de desconto, conheça também os melhores lugares para curtir em Arraial do Cabo, Búzios e
                             Cabo Frio<br />
                         </p>
                     </div>
@@ -29,7 +29,7 @@ function Tourism() {
                         <a href="https://www.arraial.rj.gov.br/portal/turismo/9" target="_blank" rel="noreferrer">+ Turismo em Arraial do Cabo</a>
                     </div>
                     <div className="city">
-                        <h2>Buzios</h2>
+                        <h2>Búzios</h2>
                         <p>A Armação dos Búzios, ou apenas Búzios, é uma península de apenas oito quilômetros de extensão, mas que reúne mais de 20 opções
                             de praias com diferentes características que agradam todos os gostos. A cidade encanta por suas belas pousadas, excelente gastronomia,
                             vida noturna agitada, boas opções de compras e, claro, pela deslumbrância de suas paisagens. Apesar de pequeno, o balneário oferece tantas

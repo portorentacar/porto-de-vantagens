@@ -62,7 +62,7 @@ function Enterprise() {
                         <div className="company-text-iten2">
                             <div className="iten-text">
                                 <h3>+ NOVOS NEGÓCIOS</h3>
-                                <p>Com o aumento da distribuição de cupons e clientes na região, abrirá novas possibilidades para aberturas de novas empresas </p>
+                                <p>Com o aumento da distribuição de cupons, trará novos clientes e consequentemente novas possibilidades para aberturas de novas empresas </p>
                             </div>
                             <FiShoppingBag size={125} color='#2E4562' />
                         </div>
@@ -71,7 +71,7 @@ function Enterprise() {
                         <div className="company-text-iten2">
                             <div className="iten-text">
                                 <h3>+ VALORIZAÇÃO DO COMERCIO LOCAL</h3>
-                                <p>Ter descontos em grande variedades de empresas parceiras trará consequentemente novos clientes para a região </p>
+                                <p>Ter descontos em grande variedades de empresas parceiras trará novos clientes para a região </p>
                             </div>
                             < FiCoffee size={125} color='#2E4562' />
                         </div>
@@ -80,14 +80,14 @@ function Enterprise() {
                         <div className="company-text-iten2">
                             <div className="iten-text">
                                 <h3>+ POSSIBILIDADE DE NOVAS PARCERIAS </h3>
-                                <p>Além da parceria entre empresas e a Porto Rent a Car, novas parcerias podem ser criadas, gerando mais benefícios e aumento de clientes</p>
+                                <p>Além da parceria entre empresas e a Porto Rent a Car, novas parcerias poderão ser criadas, gerando mais benefícios e aumento de clientes</p>
                             </div>
                             <FiBriefcase size={125} color='#2E4562' />
                         </div>
 
                         <div className="company-text-iten2">
                             <div className="iten-text">
-                                <h3>+ EVIDENCIA DA MARCA </h3>
+                                <h3>+ EVIDÊNCIA DA MARCA </h3>
                                 <p>Sua empresa estará sempre disponível no catálogo de parceiros, ficando em evidência para os clientes que desejam aproveitar os seus benefícios obtidos </p>
                             </div>
                             <FiGlobe size={125} color='#2E4562' />
