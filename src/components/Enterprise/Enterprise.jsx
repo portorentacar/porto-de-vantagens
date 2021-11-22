@@ -10,6 +10,9 @@ function Enterprise() {
     return (
         <div className="container">
             <div className="content">
+                <div className="title-mobile">
+                    <img src={companyTitle} alt="title-section" />
+                </div>
                 <div className="company">
                     <div className="company-texts">
 
@@ -50,11 +53,10 @@ function Enterprise() {
                     </div>
 
                     <div className="title">
-                        <img src={companyTitle} alt="title-section" />
+
                         <div className="image">
                             <img src={companyImg} alt="imagem" />
                         </div>
-                        <Link to="/parceiros" className="btn-company">VEJA COMO SER UM PARCEIRO</Link>
                     </div>
 
 
@@ -94,6 +96,9 @@ function Enterprise() {
                         </div>
                     </div>
 
+                </div>
+                <div className="company-button">
+                    <Link to="/parceiros" className="btn-company">VEJA COMO SER UM PARCEIRO</Link>
                 </div>
             </div>
         </div>

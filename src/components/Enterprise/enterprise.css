@@ -1,9 +1,9 @@
 .company {
-  margin-top: 150px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 30px;
 }
 
 .company .company-texts {
@@ -57,16 +57,22 @@
 
 .company .title .image img {
   width: 560px;
+  margin-top: 70px;
 }
 
-.company .title a {
+.company-button a {
   background-color: #2e4562;
   text-decoration: none;
   color: #fff;
   font-weight: 700;
   padding: 10px;
   border-radius: 8px;
-  margin-top: 30px;
+}
+
+.title-mobile img {
+  width: 325px;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
 @media (max-width: 1080px) {
