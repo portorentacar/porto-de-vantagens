@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Footer from '../../../components/Footer/Footer';
 import { toast } from 'react-toastify';
 import firebase from '../../../services/firebaseConnection';
 import avatarLogo from '../../../assets/images/avatar.svg';
@@ -7,6 +6,7 @@ import { FiUpload } from 'react-icons/fi';
 import Navbar2 from '../../../components/NavbarAdmin/index';
 import './newCompany.css';
 import UserLogin from '../../../components/UserLogin/UserLogin';
+import Footer2 from '../../../components/Footer2/Footer2';
 
 function NewCompany() {
     const [companyName, setCompanyName] = useState('');
@@ -286,7 +286,7 @@ function NewCompany() {
 
                 </div>
             </div>
-            <Footer />
+            <Footer2 />
         </div>
     )
 }

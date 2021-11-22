@@ -4,7 +4,7 @@ import firebase from '../../../services/firebaseConnection';
 import Navbar2 from '../../../components/NavbarAdmin/index';
 import './dashboard.css'
 import UserLogin from '../../../components/UserLogin/UserLogin';
-import Footer from '../../../components/Footer/Footer';
+import Footer2 from '../../../components/Footer2/Footer2';
 
 function Dashboard() {
     const [data, setData] = useState([]);
@@ -130,7 +130,7 @@ function Dashboard() {
                     </div>
                 </div>
             </div>
-            <Footer />
+            <Footer2 />
         </div>
     )
 }

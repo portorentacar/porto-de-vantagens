@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Footer from '../../../components/Footer/Footer';
 import { toast } from 'react-toastify';
 import firebase from '../../../services/firebaseConnection';
 import avatarLogo from '../../../assets/images/avatar.svg';
@@ -8,6 +7,7 @@ import Navbar2 from '../../../components/NavbarAdmin/index';
 import './companiesEdit.css';
 import { useParams, useHistory } from 'react-router';
 import UserLogin from '../../../components/UserLogin/UserLogin';
+import Footer2 from '../../../components/Footer2/Footer2';
 
 function CompaniesEdit() {
     const { id } = useParams();
@@ -381,7 +381,7 @@ function CompaniesEdit() {
 
                 </div>
             </div>
-            <Footer />
+            <Footer2 />
         </div>
     )
 }

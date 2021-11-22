@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import Footer from '../../../components/Footer/Footer';
 import { toast } from 'react-toastify';
 import firebase from '../../../services/firebaseConnection';
 import Navbar2 from '../../../components/NavbarAdmin/index';
 import './newCupom.css';
 import UserLogin from '../../../components/UserLogin/UserLogin';
+import Footer2 from '../../../components/Footer2/Footer2';
 
 function NewCupom() {
     const [contract, setContract] = useState('');
@@ -61,7 +61,7 @@ function NewCupom() {
 
                 </div>
             </div>
-            <Footer />
+            <Footer2 />
         </div>
     )
 }

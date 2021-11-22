@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/Auth';
 import { useHistory } from 'react-router-dom';
 import UserLogin from '../../../components/UserLogin/UserLogin';
-import Footer from '../../../components/Footer/Footer';
+import Footer2 from '../../../components/Footer2/Footer2';
 
 function UsersAdmin() {
     const history = useHistory();
@@ -78,7 +78,7 @@ function UsersAdmin() {
                     </div>
                 </div>
             </div>
-            <Footer />
+            <Footer2 />
         </div>
     )
 }

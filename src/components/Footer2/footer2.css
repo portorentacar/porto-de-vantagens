@@ -1,0 +1,138 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background-color: #2e4562;
+}
+
+.footer .infos {
+  width: 90%;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer .infos h4 {
+  margin-bottom: 10px;
+}
+
+.footer .infos .footer-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  color: #fff;
+  padding: 10px 0;
+  margin: 0 20px;
+}
+
+.footer .infos .footer-1 img {
+  margin: 10px 0;
+}
+
+.footer .infos .footer-1 P {
+  margin: 20px 0;
+  font-size: 12px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.footer .infos .footer-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  color: #fff;
+  padding: 10px 0;
+  margin: 0 20px;
+}
+
+.footer .infos .footer-2 p {
+  font-size: 12px;
+}
+
+.footer .infos .footer-2 a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+}
+
+.footer .infos .footer-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  color: #fff;
+  padding: 10px 0;
+  margin: 0 20px;
+}
+
+.footer .infos .footer-3 .btn-footer {
+  text-align: center;
+  width: 200px;
+  background-color: #fff;
+  color: #2e4562;
+  padding: 5px 10px;
+  font-weight: 700;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  text-decoration: none;
+}
+
+.footer .infos .footer-4 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  color: #fff;
+  padding: 10px 0;
+  margin: 0 20px;
+}
+
+.footer .infos .footer-4 p {
+  font-size: 14px;
+}
+
+.footer .copy {
+  padding: 10px 6%;
+  background-color: #2b3c56;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer .copy p {
+  color: #fff;
+  font-size: 12px;
+}
+
+.footer .copy .img {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  font-weight: 700;
+}
+
+.footer .copy .img img {
+  width: 80px;
+  margin-left: 10px;
+}

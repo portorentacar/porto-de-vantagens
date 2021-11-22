@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
-import Footer from '../../../components/Footer/Footer';
 import Navbar2 from '../../../components/NavbarAdmin/index';
 import './signUp.css'
 import { AuthContext } from '../../../contexts/Auth';
 import UserLogin from '../../../components/UserLogin/UserLogin';
+import Footer2 from '../../../components/Footer2/Footer2';
 
 function SignUp() {
     const [name, setName] = useState('');
@@ -45,7 +45,7 @@ function SignUp() {
 
                 </div>
             </div>
-            <Footer />
+            <Footer2 />
         </div>
     )
 }

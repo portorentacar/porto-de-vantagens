@@ -5,7 +5,7 @@ import firebase from '../../../services/firebaseConnection';
 import { useParams } from 'react-router';
 import { toast } from 'react-toastify';
 import UserLogin from '../../../components/UserLogin/UserLogin';
-import Footer from '../../../components/Footer/Footer';
+import Footer2 from '../../../components/Footer2/Footer2';
 
 function EditUser() {
     const { id } = useParams();
@@ -71,7 +71,7 @@ function EditUser() {
 
                 </div>
             </div>
-            <Footer />
+            <Footer2 />
         </div>
     )
 }
