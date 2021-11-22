@@ -11,7 +11,7 @@ const StyledBurger = styled.div`
   z-index: 20;
   display: none;
 
-  @media (max-width: 768px) {
+  @media (max-width: 830px) {
     display: flex;
     justify-content: space-around;
     flex-flow: column nowrap;
@@ -42,7 +42,7 @@ const StyledBurger = styled.div`
 
 const Burger = () => {
   const [open, setOpen] = useState(false)
-  
+
   return (
     <>
       <StyledBurger open={open} onClick={() => setOpen(!open)}>
@@ -50,7 +50,7 @@ const Burger = () => {
         <div />
         <div />
       </StyledBurger>
-      <RightNav open={open}/>
+      <RightNav open={open} />
     </>
   )
 }
