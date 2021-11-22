@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import Footer from '../../../components/Footer/Footer';
-import {toast} from 'react-toastify';
+import { toast } from 'react-toastify';
 import firebase from '../../../services/firebaseConnection';
 import avatarLogo from '../../../assets/images/avatar.svg';
-import {FiUpload} from 'react-icons/fi';
+import { FiUpload } from 'react-icons/fi';
 import Navbar2 from '../../../components/NavbarAdmin/index';
 import './companiesEdit.css';
 import { useParams, useHistory } from 'react-router';
+import UserLogin from '../../../components/UserLogin/UserLogin';
 
 function CompaniesEdit() {
-    const {id} = useParams();
+    const { id } = useParams();
     const history = useHistory()
     const [companyName, setCompanyName] = useState('');
     const [road, setRoad] = useState('');
@@ -37,28 +38,28 @@ function CompaniesEdit() {
     useEffect(() => {
         async function loadCompanies() {
             await firebase.firestore().collection('company').doc(id)
-            .get()
+                .get()
                 .then((snapshot) => {
-                        setCompanyName(snapshot.data().companyName)
-                        setRoad(snapshot.data().road)
-                        setNumber(snapshot.data().number)
-                        setComplement(snapshot.data().complement)
-                        setReference(snapshot.data().reference)
-                        setDistrict(snapshot.data().district)
-                        setCity(snapshot.data().city)
-                        setUf(snapshot.data().uf)
-                        setCode(snapshot.data().code)
-                        setDdd(snapshot.data().ddd)
-                        setPhone(snapshot.data().phone)
-                        setDdd2(snapshot.data().ddd2)
-                        setPhone2(snapshot.data().phone2)
-                        setEmail(snapshot.data().email)
-                        setSegment(snapshot.data().segment)
-                        setPercentage(snapshot.data().percentage)
-                        setInstagram(snapshot.data().instagram)
-                        setFacebook(snapshot.data().facebook)
-                        setDescription(snapshot.data().description)
-                        setAvatarUrl(snapshot.data().avatarUrl)
+                    setCompanyName(snapshot.data().companyName)
+                    setRoad(snapshot.data().road)
+                    setNumber(snapshot.data().number)
+                    setComplement(snapshot.data().complement)
+                    setReference(snapshot.data().reference)
+                    setDistrict(snapshot.data().district)
+                    setCity(snapshot.data().city)
+                    setUf(snapshot.data().uf)
+                    setCode(snapshot.data().code)
+                    setDdd(snapshot.data().ddd)
+                    setPhone(snapshot.data().phone)
+                    setDdd2(snapshot.data().ddd2)
+                    setPhone2(snapshot.data().phone2)
+                    setEmail(snapshot.data().email)
+                    setSegment(snapshot.data().segment)
+                    setPercentage(snapshot.data().percentage)
+                    setInstagram(snapshot.data().instagram)
+                    setFacebook(snapshot.data().facebook)
+                    setDescription(snapshot.data().description)
+                    setAvatarUrl(snapshot.data().avatarUrl)
 
                 }).catch(error => {
                     console.log(error)
@@ -68,24 +69,24 @@ function CompaniesEdit() {
 
         loadCompanies();
     }, [id])
-    
+
 
     // Carregando imagem e salvando dados no banco de dados
     function handleFile(e) {
         console.log(e.target.files[0])
 
-       if(e.target.files[0]){
-           const image = e.target.files[0];
+        if (e.target.files[0]) {
+            const image = e.target.files[0];
 
-           if(image.type === 'image/jpeg' || image.type === 'image/jpg' || image.type === 'image/png') {
-               setImageAvatar(image);
-               setAvatarUrl(URL.createObjectURL(e.target.files[0]))
-           } else {
-               toast.error('Tipo dearquivo não aceito. Envie uma imagem dos tipos: .jpg, .jpeg, .png');
-               setImageAvatar(null);
-               return null;
-           }
-       }
+            if (image.type === 'image/jpeg' || image.type === 'image/jpg' || image.type === 'image/png') {
+                setImageAvatar(image);
+                setAvatarUrl(URL.createObjectURL(e.target.files[0]))
+            } else {
+                toast.error('Tipo dearquivo não aceito. Envie uma imagem dos tipos: .jpg, .jpeg, .png');
+                setImageAvatar(null);
+                return null;
+            }
+        }
     }
 
     //Edit company
@@ -95,129 +96,129 @@ function CompaniesEdit() {
             .ref(`images/${imageAvatar.name}`)
             .put(imageAvatar)
             .then(async () => {
-                    await firebase.storage().ref(`images`)
-                        .child(imageAvatar.name)
-                        .getDownloadURL()
-                        .then( async (url) => {
-                            let urlImage = url;
-                            console.log(url)
+                await firebase.storage().ref(`images`)
+                    .child(imageAvatar.name)
+                    .getDownloadURL()
+                    .then(async (url) => {
+                        let urlImage = url;
+                        console.log(url)
 
-                            await firebase.firestore().collection('company').doc(id)
-                                .update({
-                                    companyName:companyName,
-                                    road: road,
-                                    number:number,
-                                    complement: complement,
-                                    reference: reference,
-                                    district:district,
-                                    city:city,
-                                    uf:uf,
-                                    code:code,
-                                    email:email,
-                                    ddd:ddd,
-                                    phone:phone,
-                                    ddd2:ddd2,
-                                    phone2:phone2,
-                                    instagram:instagram,
-                                    facebook:facebook,
-                                    segment:segment,
-                                    percentage:percentage,
-                                    description:description,
-                                    avatarUrl:  urlImage 
-                                }).then(() => {
-                                    setInstagram('');
-                                    setCompanyName('');
-                                    setFacebook('');
-                                    setRoad('');
-                                    setNumber('');
-                                    setComplement('');
-                                    setDistrict('');
-                                    setReference('');
-                                    setCity('');
-                                    setUf('');
-                                    setCode('');
-                                    setEmail('');
-                                    setDdd('');
-                                    setPhone('');
-                                    setDdd2('');
-                                    setPhone2('');
-                                    setPercentage('');
-                                    setSegment('');
-                                    setAvatarUrl(null);
-                                    setDescription(null);
-                        
-                                    toast.success('Parceiro editado com sucesso!')
-                                }).catch(error => {
-                                    console.log(error)
-                                    toast.error('Ops. Deu algo errado')
-                                })
-                        }).catch(error => {
-                            console.log(error);
-                            toast.error('Ops. Deu algo errado. Tente novamente ou contate o desenvovedor!')
-                        })
+                        await firebase.firestore().collection('company').doc(id)
+                            .update({
+                                companyName: companyName,
+                                road: road,
+                                number: number,
+                                complement: complement,
+                                reference: reference,
+                                district: district,
+                                city: city,
+                                uf: uf,
+                                code: code,
+                                email: email,
+                                ddd: ddd,
+                                phone: phone,
+                                ddd2: ddd2,
+                                phone2: phone2,
+                                instagram: instagram,
+                                facebook: facebook,
+                                segment: segment,
+                                percentage: percentage,
+                                description: description,
+                                avatarUrl: urlImage
+                            }).then(() => {
+                                setInstagram('');
+                                setCompanyName('');
+                                setFacebook('');
+                                setRoad('');
+                                setNumber('');
+                                setComplement('');
+                                setDistrict('');
+                                setReference('');
+                                setCity('');
+                                setUf('');
+                                setCode('');
+                                setEmail('');
+                                setDdd('');
+                                setPhone('');
+                                setDdd2('');
+                                setPhone2('');
+                                setPercentage('');
+                                setSegment('');
+                                setAvatarUrl(null);
+                                setDescription(null);
+
+                                toast.success('Parceiro editado com sucesso!')
+                            }).catch(error => {
+                                console.log(error)
+                                toast.error('Ops. Deu algo errado')
+                            })
+                    }).catch(error => {
+                        console.log(error);
+                        toast.error('Ops. Deu algo errado. Tente novamente ou contate o desenvovedor!')
+                    })
             }).catch(error => {
                 console.log(error);
                 toast.error('Ops. Deu algo errado. Tente novamente ou contate o desenvovedor!')
             })
-            console.log(uploadTask);      
+        console.log(uploadTask);
     };
 
     //Edit company of image
     async function updateCompany(e) {
-    e.preventDefault();
-    if(imageAvatar === null) {
-        await firebase.firestore().collection('company').doc(id)
-                                .update({
-                                    companyName:companyName,
-                                    road: road,
-                                    number:number,
-                                    complement: complement,
-                                    reference: reference,
-                                    district:district,
-                                    city:city,
-                                    uf:uf,
-                                    code:code,
-                                    email:email,
-                                    ddd:ddd,
-                                    phone:phone,
-                                    ddd2:ddd2,
-                                    phone2:phone2,
-                                    instagram:instagram,
-                                    facebook:facebook,
-                                    segment:segment,
-                                    percentage:percentage,
-                                    description:description,
-                                }).then(() => {
-                                    setInstagram('');
-                                    setCompanyName('');
-                                    setFacebook('');
-                                    setRoad('');
-                                    setNumber('');
-                                    setComplement('');
-                                    setDistrict('');
-                                    setReference('');
-                                    setCity('');
-                                    setUf('');
-                                    setCode('');
-                                    setEmail('');
-                                    setDdd('');
-                                    setPhone('');
-                                    setDdd2('');
-                                    setPhone2('');
-                                    setPercentage('');
-                                    setSegment('');
-                                    setAvatarUrl(null);
-                                    setDescription(null);
-                        
-                                    toast.success('Parceiro editado com sucesso!');
-                                    history.push('/')
-                                }).catch(error => {
-                                    console.log(error)
-                                    toast.error('Ops. Deu algo errado')
-                                })
-         }else if(imageAvatar !== null){
+        e.preventDefault();
+        if (imageAvatar === null) {
+            await firebase.firestore().collection('company').doc(id)
+                .update({
+                    companyName: companyName,
+                    road: road,
+                    number: number,
+                    complement: complement,
+                    reference: reference,
+                    district: district,
+                    city: city,
+                    uf: uf,
+                    code: code,
+                    email: email,
+                    ddd: ddd,
+                    phone: phone,
+                    ddd2: ddd2,
+                    phone2: phone2,
+                    instagram: instagram,
+                    facebook: facebook,
+                    segment: segment,
+                    percentage: percentage,
+                    description: description,
+                }).then(() => {
+                    setInstagram('');
+                    setCompanyName('');
+                    setFacebook('');
+                    setRoad('');
+                    setNumber('');
+                    setComplement('');
+                    setDistrict('');
+                    setReference('');
+                    setCity('');
+                    setUf('');
+                    setCode('');
+                    setEmail('');
+                    setDdd('');
+                    setPhone('');
+                    setDdd2('');
+                    setPhone2('');
+                    setPercentage('');
+                    setSegment('');
+                    setAvatarUrl(null);
+                    setDescription(null);
+
+                    toast.success('Parceiro editado com sucesso!');
+                    history.push('/')
+                }).catch(error => {
+                    console.log(error)
+                    toast.error('Ops. Deu algo errado')
+                })
+        } else if (imageAvatar !== null) {
             handleAddCompany()
-    }
+        }
     }
 
     function handleSelectSegment(e) {
@@ -230,156 +231,157 @@ function CompaniesEdit() {
 
     return (
         <div className="container">
-             <Navbar2 />
-        <div className="content">
-        <div className="companiesEdit">
-            <h1> EDIÇÃO DE PARCEIROS</h1>
-            <form className="form-company" onSubmit={updateCompany}>
-                <div className="image">
+            <Navbar2 />
+            <div className="content">
+                <div className="companiesEdit">
+                    <UserLogin />
+                    <h1> EDIÇÃO DE PARCEIROS</h1>
+                    <form className="form-company" onSubmit={updateCompany}>
+                        <div className="image">
                             <label className="label-avatar">
-                            <span><FiUpload color="#f65" size={25} /></span>
-                            <input type="file" accept="image/*" onChange={handleFile}/><br />
-                            <img src={avatarUrl === null ? avatarLogo : avatarUrl} alt="Avatar" height={191} width={191}/>
-                        </label>
-                </div>
-                <div className="data">
-                <div className="company-data">
-                        <span>Dados Empresa</span>
-                       
-                             <label>Empresa: </label>
-                            <input type="text" value={companyName}  onChange={(e) => setCompanyName(e.target.value)}/>
+                                <span><FiUpload color="#f65" size={25} /></span>
+                                <input type="file" accept="image/*" onChange={handleFile} /><br />
+                                <img src={avatarUrl === null ? avatarLogo : avatarUrl} alt="Avatar" height={191} width={191} />
+                            </label>
+                        </div>
+                        <div className="data">
+                            <div className="company-data">
+                                <span>Dados Empresa</span>
 
-                            <span>Dados Contato</span>
-                      
-                            <label>Email: </label>
-                            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                            <label>Telefone/Whatsapp: </label>
-                            <div className="phone">
-                                <div className="ddd-phone">
-                            <input type="text" value={ddd} onChange={(e) => setDdd(e.target.value)} />
+                                <label>Empresa: </label>
+                                <input type="text" value={companyName} onChange={(e) => setCompanyName(e.target.value)} />
+
+                                <span>Dados Contato</span>
+
+                                <label>Email: </label>
+                                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                <label>Telefone/Whatsapp: </label>
+                                <div className="phone">
+                                    <div className="ddd-phone">
+                                        <input type="text" value={ddd} onChange={(e) => setDdd(e.target.value)} />
+                                    </div>
+                                    <div className="number-phone">
+                                        <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                                    </div>
                                 </div>
-                                <div className="number-phone">
-                            <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} />
-                            </div>
-                            </div>
-                            <label>Telefone/Whatsapp: </label>
-                            <div className="phone">
-                                <div className="ddd-phone">
-                            <input type="text" value={ddd2} onChange={(e) => setDdd2(e.target.value)} />
+                                <label>Telefone/Whatsapp: </label>
+                                <div className="phone">
+                                    <div className="ddd-phone">
+                                        <input type="text" value={ddd2} onChange={(e) => setDdd2(e.target.value)} />
+                                    </div>
+                                    <div className="number-phone">
+                                        <input type="text" value={phone2} onChange={(e) => setPhone2(e.target.value)} />
+                                    </div>
                                 </div>
-                                <div className="number-phone">
-                            <input type="text" value={phone2} onChange={(e) => setPhone2(e.target.value)} />
-                            </div>
-                            </div>
 
-                            <label>Redes sociais: </label>
-                            <div className="redes-sociais">
-                                <div className="instagram">
-                            <input type="text" value={instagram} placeholder="Instagram" onChange={(e) => setInstagram(e.target.value)} />
+                                <label>Redes sociais: </label>
+                                <div className="redes-sociais">
+                                    <div className="instagram">
+                                        <input type="text" value={instagram} placeholder="Instagram" onChange={(e) => setInstagram(e.target.value)} />
+                                    </div>
+                                    <div className="facebook">
+                                        <input type="text" value={facebook} placeholder="Facebook" onChange={(e) => setFacebook(e.target.value)} />
+                                    </div>
                                 </div>
-                                <div className="facebook">
-                            <input type="text" value={facebook} placeholder="Facebook" onChange={(e) => setFacebook(e.target.value)} />
-                            </div>
-                            </div>
-                            
 
-                            <span>DESCONTOS</span>
 
-                            <label>Segmento: </label>
-                            <select value={segment} onChange={handleSelectSegment}>
-                               <option value="Selecione">Selecione</option>
-                                <option value="Hoteis e Pousadas">Hoteis e Pousadas</option>
-                                <option value="Comércio de Óculos">Comércio de Óculos</option>
-                                <option value="Cafeteria">Cafeteria</option>
-                                <option value="Comunicação Visual e Gráfica">Comunicação Visual e Gráfica</option>
-                                <option value="Peças, Acessórios e Baterias Automotivas">Peças, Acessórios e Baterias Automotivas</option>
-                                <option value="Agência de viagens e Excursões">Agência de viagens e Excursões</option>
-                                <option value="Moda Praia">Moda Praia</option>
-                                <option value="Restaurantes e Fast Foods">Restaurantes e Fast Foods</option>
-                                <option value="Supermercados e Padarias">Supermercados e Padarias</option>
-                                <option value="Padarias e Supermercados">Padarias e Supermercados</option>
-                                <option value="Loja de roupas">Loja de roupas</option>
-                                <option value="Sapatos e Calçados">Sapatos e Calçados</option>
-                                <option value="Loja de roupas infantís">Loja de roupas infantís</option>
-                                <option value="Lavanderia">Lavanderia</option>
-                                <option value="Jóias e Acessórios">Jóias e Acessórios</option>
-                                <option value="Sorveteria e Açaí">Sorveteria e Açaí</option>
-                                <option value="Informatica e Tecnologia">Informatica e Tecnologia</option>
-                                <option value="Advocacia">Advocacia</option>
-                                <option value="Contabilidade">Contabilidade</option>
-                                <option value="Marketing Digital">Marketing Digital</option>
-                                <option value="Salão de Beleza e Barbearia">Salão de Beleza e Barbearia</option>
-                                <option value="Mat. de Construção e Reformas">Mat. de Construção e Reformas</option>
-                            </select>
-                        
-                            <label>% de desconto: </label>
-                            <input type="number" value={percentage} onChange={(e) => setPercentage(e.target.value)} />
-                            <label>Descrição do desconto: </label>
-                            <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
+                                <span>DESCONTOS</span>
 
-                </div>
+                                <label>Segmento: </label>
+                                <select value={segment} onChange={handleSelectSegment}>
+                                    <option value="Selecione">Selecione</option>
+                                    <option value="Hoteis e Pousadas">Hoteis e Pousadas</option>
+                                    <option value="Comércio de Óculos">Comércio de Óculos</option>
+                                    <option value="Cafeteria">Cafeteria</option>
+                                    <option value="Comunicação Visual e Gráfica">Comunicação Visual e Gráfica</option>
+                                    <option value="Peças, Acessórios e Baterias Automotivas">Peças, Acessórios e Baterias Automotivas</option>
+                                    <option value="Agência de viagens e Excursões">Agência de viagens e Excursões</option>
+                                    <option value="Moda Praia">Moda Praia</option>
+                                    <option value="Restaurantes e Fast Foods">Restaurantes e Fast Foods</option>
+                                    <option value="Supermercados e Padarias">Supermercados e Padarias</option>
+                                    <option value="Padarias e Supermercados">Padarias e Supermercados</option>
+                                    <option value="Loja de roupas">Loja de roupas</option>
+                                    <option value="Sapatos e Calçados">Sapatos e Calçados</option>
+                                    <option value="Loja de roupas infantís">Loja de roupas infantís</option>
+                                    <option value="Lavanderia">Lavanderia</option>
+                                    <option value="Jóias e Acessórios">Jóias e Acessórios</option>
+                                    <option value="Sorveteria e Açaí">Sorveteria e Açaí</option>
+                                    <option value="Informatica e Tecnologia">Informatica e Tecnologia</option>
+                                    <option value="Advocacia">Advocacia</option>
+                                    <option value="Contabilidade">Contabilidade</option>
+                                    <option value="Marketing Digital">Marketing Digital</option>
+                                    <option value="Salão de Beleza e Barbearia">Salão de Beleza e Barbearia</option>
+                                    <option value="Mat. de Construção e Reformas">Mat. de Construção e Reformas</option>
+                                </select>
 
-                
-                <div className="adrress">
-                        <span>Dados Endereço</span>
-                        
-                            <label>Rua: </label>
-                            <input type="text" value={road} onChange={(e) => setRoad(e.target.value)} />
-                            <label>Nº: </label>
-                            <input type="number" value={number} onChange={(e) => setNumber(e.target.value)} />
-                            <label>Complemento: </label>
-                            <input type="text" value={complement} onChange={(e) => setComplement(e.target.value)} />
-                            <label>Referência: </label>
-                            <input type="text" value={reference} onChange={(e) => setReference(e.target.value)} />
-                            <label>Bairro: </label>
-                            <input type="text" value={district} onChange={(e) => setDistrict(e.target.value)} />
-                                                 
-                            <label>Cidade: </label>
-                            <input type="text" value={city} onChange={(e) => setCity(e.target.value)} />
-                            <label>Estado: </label>
-                            <select value={uf} onChange={handleSelectUf}>
-                                <option value="Selecione">Selecione</option>
-                                <option value="Acre - AC">Acre - AC</option>
-                                <option value="Alagoas - AL">Alagoas - AL</option>
-                                <option value="Amapá - AP">Amapá - AP</option>
-                                <option value="Amazonas - AM">Amazonas - AM</option>
-                                <option value="Bahia - BA">Bahia - BA</option>
-                                <option value="Ceará - CE">Ceará - CE</option>
-                                <option value="Distrito Federal - DF">Distrito Federal - DF</option>
-                                <option value="Espírito Santo - ES">Espírito Santo - ES</option>
-                                <option value="Goiás - GO">Goiás - GO</option>
-                                <option value="Maranhão - MA">Maranhão - MA</option>
-                                <option value="Mato Grosso - MT">Mato Grosso - MT</option>
-                                <option value="Mato Grosso do Sul - MS">Mato Grosso do Sul - MS</option>
-                                <option value="Minas Gerais - MG">Minas Gerais - MG</option>
-                                <option value="Pará - PA">Pará - PA</option>
-                                <option value="Paraíba - PB">Paraíba - PB</option>
-                                <option value="Paranpa - PR">Paranpa - PR</option>
-                                <option value="Pernambuco - PE">Pernambuco - PE</option>
-                                <option value="Piauí - PI">Piauí - PI</option>
-                                <option value="Roraima - RR">Roraima - RR</option>
-                                <option value="Rondônia - RO">Rondônia - RO</option>
-                                <option value="Rio de Janeiro - RJ">Rio de Janeiro - RJ</option>
-                                <option value="Rio Grande do Norte - RN">Rio Grande do Norte - RN</option>
-                                <option value="Rio Grande do Sul - RS">Rio Grande do Sul - RS</option>
-                                <option value="Santa Catarina - SC">Santa Catarina - SC</option>
-                                <option value="São Paulo - SP">São Paulo - SP</option>
-                                <option value="Sergipe - SE">Sergipe - SE</option>
-                                <option value="Tocantins - TO">Tocantins - TO</option>
-                            </select>
-                            <label>CEP: </label>
-                            <input type="text" value={code} onChange={(e) => setCode(e.target.value)} />
-                      
-                            </div> 
+                                <label>% de desconto: </label>
+                                <input type="number" value={percentage} onChange={(e) => setPercentage(e.target.value)} />
+                                <label>Descrição do desconto: </label>
+                                <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
 
                             </div>
-                            
+
+
+                            <div className="adrress">
+                                <span>Dados Endereço</span>
+
+                                <label>Rua: </label>
+                                <input type="text" value={road} onChange={(e) => setRoad(e.target.value)} />
+                                <label>Nº: </label>
+                                <input type="number" value={number} onChange={(e) => setNumber(e.target.value)} />
+                                <label>Complemento: </label>
+                                <input type="text" value={complement} onChange={(e) => setComplement(e.target.value)} />
+                                <label>Referência: </label>
+                                <input type="text" value={reference} onChange={(e) => setReference(e.target.value)} />
+                                <label>Bairro: </label>
+                                <input type="text" value={district} onChange={(e) => setDistrict(e.target.value)} />
+
+                                <label>Cidade: </label>
+                                <input type="text" value={city} onChange={(e) => setCity(e.target.value)} />
+                                <label>Estado: </label>
+                                <select value={uf} onChange={handleSelectUf}>
+                                    <option value="Selecione">Selecione</option>
+                                    <option value="Acre - AC">Acre - AC</option>
+                                    <option value="Alagoas - AL">Alagoas - AL</option>
+                                    <option value="Amapá - AP">Amapá - AP</option>
+                                    <option value="Amazonas - AM">Amazonas - AM</option>
+                                    <option value="Bahia - BA">Bahia - BA</option>
+                                    <option value="Ceará - CE">Ceará - CE</option>
+                                    <option value="Distrito Federal - DF">Distrito Federal - DF</option>
+                                    <option value="Espírito Santo - ES">Espírito Santo - ES</option>
+                                    <option value="Goiás - GO">Goiás - GO</option>
+                                    <option value="Maranhão - MA">Maranhão - MA</option>
+                                    <option value="Mato Grosso - MT">Mato Grosso - MT</option>
+                                    <option value="Mato Grosso do Sul - MS">Mato Grosso do Sul - MS</option>
+                                    <option value="Minas Gerais - MG">Minas Gerais - MG</option>
+                                    <option value="Pará - PA">Pará - PA</option>
+                                    <option value="Paraíba - PB">Paraíba - PB</option>
+                                    <option value="Paranpa - PR">Paranpa - PR</option>
+                                    <option value="Pernambuco - PE">Pernambuco - PE</option>
+                                    <option value="Piauí - PI">Piauí - PI</option>
+                                    <option value="Roraima - RR">Roraima - RR</option>
+                                    <option value="Rondônia - RO">Rondônia - RO</option>
+                                    <option value="Rio de Janeiro - RJ">Rio de Janeiro - RJ</option>
+                                    <option value="Rio Grande do Norte - RN">Rio Grande do Norte - RN</option>
+                                    <option value="Rio Grande do Sul - RS">Rio Grande do Sul - RS</option>
+                                    <option value="Santa Catarina - SC">Santa Catarina - SC</option>
+                                    <option value="São Paulo - SP">São Paulo - SP</option>
+                                    <option value="Sergipe - SE">Sergipe - SE</option>
+                                    <option value="Tocantins - TO">Tocantins - TO</option>
+                                </select>
+                                <label>CEP: </label>
+                                <input type="text" value={code} onChange={(e) => setCode(e.target.value)} />
+
+                            </div>
+
+                        </div>
+
                         <button type="submit" >Atualizar Parceiro</button>
                     </form>
-            
-        </div>
-        </div>
-        <Footer />
+
+                </div>
+            </div>
+            <Footer />
         </div>
     )
 }

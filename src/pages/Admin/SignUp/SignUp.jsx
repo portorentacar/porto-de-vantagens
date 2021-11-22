@@ -3,6 +3,7 @@ import Footer from '../../../components/Footer/Footer';
 import Navbar2 from '../../../components/NavbarAdmin/index';
 import './signUp.css'
 import { AuthContext } from '../../../contexts/Auth';
+import UserLogin from '../../../components/UserLogin/UserLogin';
 
 function SignUp() {
     const [name, setName] = useState('');
@@ -10,13 +11,13 @@ function SignUp() {
     const [password, setPassword] = useState('');
 
 
-    const {signUp} = useContext(AuthContext);
+    const { signUp } = useContext(AuthContext);
 
 
     function handleSignUp(e) {
         e.preventDefault()
 
-        if(name !== '' && email !== '' && password !== '') {
+        if (name !== '' && email !== '' && password !== '') {
             signUp(email, password, name);
             setName('');
             setEmail('');
@@ -26,24 +27,25 @@ function SignUp() {
 
     return (
         <div className="container">
-             <Navbar2 />
-        <div className="content">
-        <div className="box">
-            <h1> CADASTRO DE USUÁRIO</h1>
-            <form className="form" onClick={handleSignUp}>
-                <label>NOME</label>
-                <input type="text" placeholder="Seu Nome" value={name} onChange={(e) => setName(e.target.value)}/>
-                <label>E-MAIL</label>
-                <input type="email"  placeholder="seuemail@email.com" value={email} onChange={(e) => setEmail(e.target.value)}/>
-                <label>SENHA</label>
-                <input type="password"  placeholder="********" value={password} onChange={(e) => setPassword(e.target.value)}/>
+            <Navbar2 />
+            <div className="content">
+                <UserLogin />
+                <div className="box">
+                    <h1> CADASTRO DE USUÁRIO</h1>
+                    <form className="form" onClick={handleSignUp}>
+                        <label>NOME</label>
+                        <input type="text" placeholder="Seu Nome" value={name} onChange={(e) => setName(e.target.value)} />
+                        <label>E-MAIL</label>
+                        <input type="email" placeholder="seuemail@email.com" value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <label>SENHA</label>
+                        <input type="password" placeholder="********" value={password} onChange={(e) => setPassword(e.target.value)} />
 
-                <button type="submit">CRIAR CADASTRO</button>
-            </form>
-            
-        </div>
-        </div>
-        <Footer />
+                        <button type="submit">CRIAR CADASTRO</button>
+                    </form>
+
+                </div>
+            </div>
+            <Footer />
         </div>
     )
 }
