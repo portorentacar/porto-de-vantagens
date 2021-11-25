@@ -290,28 +290,36 @@ function CompaniesEdit() {
                                 <label>Segmento: </label>
                                 <select value={segment} onChange={handleSelectSegment}>
                                     <option value="Selecione">Selecione</option>
-                                    <option value="Hoteis e Pousadas">Hoteis e Pousadas</option>
+                                    <option value="Advocacia">Advocacia</option>
+                                    <option value="Agência de viagens e Excursões">Agência de viagens e Excursões</option>
                                     <option value="Comércio de Óculos">Comércio de Óculos</option>
                                     <option value="Cafeteria">Cafeteria</option>
                                     <option value="Comunicação Visual e Gráfica">Comunicação Visual e Gráfica</option>
-                                    <option value="Peças, Acessórios e Baterias Automotivas">Peças, Acessórios e Baterias Automotivas</option>
-                                    <option value="Agência de viagens e Excursões">Agência de viagens e Excursões</option>
-                                    <option value="Moda Praia">Moda Praia</option>
-                                    <option value="Restaurantes e Fast Foods">Restaurantes e Fast Foods</option>
-                                    <option value="Supermercados e Padarias">Supermercados e Padarias</option>
-                                    <option value="Padarias e Supermercados">Padarias e Supermercados</option>
-                                    <option value="Loja de roupas">Loja de roupas</option>
-                                    <option value="Sapatos e Calçados">Sapatos e Calçados</option>
-                                    <option value="Loja de roupas infantís">Loja de roupas infantís</option>
-                                    <option value="Lavanderia">Lavanderia</option>
-                                    <option value="Jóias e Acessórios">Jóias e Acessórios</option>
-                                    <option value="Sorveteria e Açaí">Sorveteria e Açaí</option>
-                                    <option value="Informatica e Tecnologia">Informatica e Tecnologia</option>
-                                    <option value="Advocacia">Advocacia</option>
                                     <option value="Contabilidade">Contabilidade</option>
-                                    <option value="Marketing Digital">Marketing Digital</option>
-                                    <option value="Salão de Beleza e Barbearia">Salão de Beleza e Barbearia</option>
+                                    <option value="Corretora de Investimentos">Corretora de Investimentos</option>
+                                    <option value="Hoteis e Pousadas">Hoteis e Pousadas</option>
+                                    <option value="Informatica e Tecnologia">Informatica e Tecnologia</option>
+                                    <option value="Internet, Telefonia e Comunicação">Internet, Telefonia e Comunicação</option>
+                                    <option value="Imobiliárias">Imobiliárias</option>
+                                    <option value="Jóias e Acessórios">Jóias e Acessórios</option>
+                                    <option value="Lavanderia">Lavanderia</option>
+                                    <option value="Lava Jato e Boutique de veículos">Lava Jato e Boutique de veículos</option>
+                                    <option value="Loja de roupas infantís">Loja de roupas infantís</option>
+                                    <option value="Loja de roupas">Loja de roupas</option>
                                     <option value="Mat. de Construção e Reformas">Mat. de Construção e Reformas</option>
+                                    <option value="Marketing Digital">Marketing Digital</option>
+                                    <option value="Moda Praia">Moda Praia</option>
+                                    <option value="Padarias e Supermercados">Padarias e Supermercados</option>
+                                    <option value="Papelaria e Livraria">Papelaria e Livraria</option>
+                                    <option value="Peças, Acessórios e Baterias Automotivas">Peças, Acessórios e Baterias Automotivas</option>
+                                    <option value="Pet Shop e Clínica Veterinária">Pet Shop e Clínica Veterinária</option>
+                                    <option value="Posto de gasolina e GNV">Posto de gasolina e GNV</option>
+                                    <option value="Restaurantes e Fast Foods">Restaurantes e Fast Foods</option>
+                                    <option value="Salão de Beleza e Barbearia">Salão de Beleza e Barbearia</option>
+                                    <option value="Sapatos e Calçados">Sapatos e Calçados</option>
+                                    <option value="Sites, sistemas e aplicativos">Sites, sistemas e aplicativos</option>
+                                    <option value="Sorveteria e Açaí">Sorveteria e Açaí</option>
+                                    <option value="Supermercados e Padarias">Supermercados e Padarias</option>
                                 </select>
 
                                 <label>% de desconto: </label>
