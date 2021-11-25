@@ -320,6 +320,8 @@ function CompaniesEdit() {
                                     <option value="Sites, sistemas e aplicativos">Sites, sistemas e aplicativos</option>
                                     <option value="Sorveteria e Açaí">Sorveteria e Açaí</option>
                                     <option value="Supermercados e Padarias">Supermercados e Padarias</option>
+                                    <option value="Óticas e Clínica de Oftalmologia">Óticas e Clínica de Oftalmologia</option>
+
                                 </select>
 
                                 <label>% de desconto: </label>
