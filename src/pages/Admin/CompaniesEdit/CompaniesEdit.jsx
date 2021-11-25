@@ -292,7 +292,6 @@ function CompaniesEdit() {
                                     <option value="Selecione">Selecione</option>
                                     <option value="Advocacia">Advocacia</option>
                                     <option value="Agência de viagens e Excursões">Agência de viagens e Excursões</option>
-                                    <option value="Comércio de Óculos">Comércio de Óculos</option>
                                     <option value="Cafeteria">Cafeteria</option>
                                     <option value="Comunicação Visual e Gráfica">Comunicação Visual e Gráfica</option>
                                     <option value="Contabilidade">Contabilidade</option>
