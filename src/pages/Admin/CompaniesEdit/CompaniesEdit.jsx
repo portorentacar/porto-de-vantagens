@@ -306,6 +306,7 @@ function CompaniesEdit() {
                                     <option value="Loja de roupas infantís">Loja de roupas infantís</option>
                                     <option value="Loja de roupas">Loja de roupas</option>
                                     <option value="Mat. de Construção e Reformas">Mat. de Construção e Reformas</option>
+                                    <option value="Materiais Esportivos e Itens de Times">Materiais Esportivos e Itens de Times</option>
                                     <option value="Marketing Digital">Marketing Digital</option>
                                     <option value="Moda Praia">Moda Praia</option>
                                     <option value="Padarias e Supermercados">Padarias e Supermercados</option>
