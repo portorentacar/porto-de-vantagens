@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import firebase from '../../../services/firebaseConnection';
 import Navbar2 from '../../../components/NavbarAdmin/index';
 import './dashboard.css'
 import UserLogin from '../../../components/UserLogin/UserLogin';
 import Footer2 from '../../../components/Footer2/Footer2';
+import { useHistory } from 'react-router';
+import { AuthContext } from '../../../contexts/Auth';
 
 function Dashboard() {
+    const history = useHistory();
+    const { deleteCompany } = useContext(AuthContext)
     const [data, setData] = useState([]);
     const [cupons, setCupons] = useState([]);
 
@@ -18,6 +22,7 @@ function Dashboard() {
                     let data = [];
                     snapshot.forEach((doc) => {
                         data.push({
+                            id: doc.id,
                             fantasyName: doc.data().fantasyName,
                             companyName: doc.data().companyName,
                             road: doc.data().road,
@@ -76,7 +81,16 @@ function Dashboard() {
 
         loadCompanies();
         loadCupons();
-    }, [])
+    }, []);
+
+    function handleDelete(id) {
+        console.log(id)
+        deleteCompany(id)
+    };
+
+    function handleEdit(id) {
+        history.push(`/admin/editparceiro/${id}`)
+    };
 
     return (
         <div className="container">
@@ -117,9 +131,14 @@ function Dashboard() {
                                             <img src={company.image} alt={company.image} />
                                             <div className="company-infos">
                                                 <h3>{company.companyName}</h3>
-                                                <h6>Endereço: {company.road}, {company.number}, {company.complement}, </h6>
-                                                <h6>{company.district} - {company.city} - {company.uf} | {company.reference}</h6>
-                                                <h4>{company.segment}</h4>
+                                                <h5>Endereço: {company.road}, {company.number}, {company.complement}, </h5>
+                                                <h5>{company.district} - {company.city} - {company.uf}</h5>
+                                                <h5>{company.reference}</h5>
+                                                <h6>{company.segment}</h6>
+                                            </div>
+                                            <div className="buttons-company">
+                                                <button onClick={() => handleEdit(company.id)}>Editar</button>
+                                                <button onClick={() => handleDelete(company.id)}>Excluir</button>
                                             </div>
                                         </div>
                                     )

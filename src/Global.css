@@ -42,6 +42,49 @@ button {
   text-decoration: none;
 }
 
+ .company-map {
+  background-color: #f58634;
+  color: #fff;
+  padding: 5px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  width: 150px;
+  text-align: center;
+  margin-top: 5px;
+  text-decoration: none;
+}
+
+@media (max-width: 800px) {
+  .company-map {
+  background-color: #f58634;
+  color: #fff;
+  padding: 5px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 10px;
+  width: 150px;
+  text-align: center;
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+@media (max-width: 700px) {
+   .company-map {
+  background-color: #f58634;
+  color: #fff;
+  padding: 5px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  width: 150px;
+  text-align: center;
+  margin-top: 10px;
+  text-decoration: none;
+}
+}
+}
+
 /* 
 @media (max-width: 1080px) {
   body{
