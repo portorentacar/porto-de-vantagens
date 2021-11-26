@@ -8,7 +8,7 @@ function UserLogin() {
   return (
     <div className="container">
       <div className="content">
-        <div className="header">
+        <div className="header-admin">
           <h2> Seja bem-vindo, {user.name}</h2>
           <button type="button" onClick={signOut}>Sair</button>
         </div>
